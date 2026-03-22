@@ -1,8 +1,4 @@
-/* =========================================
-   VISHAL TRIVEDI PORTFOLIO — ENHANCED CSS
-   ========================================= */
 
-/* --- Google Fonts: Space Mono + Syne --- */
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
 
 /* --- CSS Variables --- */
@@ -37,9 +33,7 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================================
-   NAVIGATION
-   ========================================= */
+
 #navbar {
     display: flex;
     justify-content: space-between;
@@ -104,9 +98,7 @@ body {
 .nav-links a:hover::after,
 .nav-links a.active::after { width: 100%; }
 
-/* =========================================
-   HERO SECTIONS
-   ========================================= */
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -117,14 +109,14 @@ body {
     overflow: hidden;
 }
 
-/* Canvas for main hero */
+
 #particleCanvas, #codeCanvas {
     position: absolute;
     inset: 0;
     z-index: 0;
 }
 
-/* SVG background for creative / venture */
+
 .bg-svg {
     position: absolute;
     inset: 0;
@@ -133,23 +125,22 @@ body {
     z-index: 0;
 }
 
-/* Main hero gradient */
+
 .hero-main {
     background: radial-gradient(ellipse at 30% 50%, #0d2010 0%, var(--bg-black) 60%),
                 radial-gradient(ellipse at 70% 50%, #091a0d 0%, transparent 50%);
 }
 
-/* Code hero */
+
 .hero-code {
     background: #060a06;
 }
 
-/* Creative hero */
+
 .hero-creative {
     background: radial-gradient(ellipse at 50% 60%, #0d1a14 0%, var(--bg-black) 70%);
 }
 
-/* Venture hero */
 .hero-venture {
     background: radial-gradient(ellipse at 50% 40%, #0f1318 0%, var(--bg-black) 70%);
 }
@@ -306,9 +297,6 @@ body {
     letter-spacing: -0.02em;
 }
 
-/* =========================================
-   CARDS
-   ========================================= */
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -400,9 +388,7 @@ body {
     border-radius: 100px;
 }
 
-/* =========================================
-   EDUCATION CARD
-   ========================================= */
+
 .edu-badge {
     display: inline-block;
     font-family: var(--font-mono);
@@ -417,9 +403,7 @@ body {
     margin-bottom: 0.75rem;
 }
 
-/* =========================================
-   TIMELINE
-   ========================================= */
+
 .timeline {
     position: relative;
     padding-left: 2rem;
@@ -456,9 +440,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* =========================================
-   CONTACT
-   ========================================= */
+
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
