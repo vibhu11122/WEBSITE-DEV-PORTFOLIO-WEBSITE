@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Trivedi | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+   <nav id="navbar">
+        <div class="logo">VT.</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="codebase.html">The Codebase</a></li>
+            <li><a href="ventures.html">Venture Forge</a></li>
+            <li><a href="creative.html">Creative Pursuits</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero hero-main">
+        <canvas id="particleCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-tag">Portfolio 2026</div>
+            <h1>Vishal<br><span class="outline-text">Trivedi</span></h1>
+            <p>
+    <a href="ventures.html" class="hero-link">Management Trainee</a>
+    · 
+    <a href="codebase.html" class="hero-link">Self-Taught Coder</a>
+    · 
+    <a href="https://dbe.iimb.ac.in/" target="_blank" class="hero-link">BBA DBE @ IIM Bangalore</a>
+</p>
+            <div class="hero-cta">
+                <a href="codebase.html" class="btn-primary">View Projects</a>
+                <a href="#contact" class="btn-ghost">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">scroll ↓</div>
+    </header>
+
+    <section id="skills" class="section">
+        <div class="section-label">01 / Skills</div>
+        <h2>What I Do</h2>
+        <div class="card-container">
+            <div class="card skill-card">
+                <div class="card-icon">💻</div>
+                <h3>Programming</h3>
+                <p>Python, NumPy, Pandas. Currently self-teaching Machine Learning to analyze data and build predictive models.</p>
+                <div class="card-pills">
+                    <span class="pill">Python</span><span class="pill">NumPy</span><span class="pill">ML</span>
+                </div>
+            </div>
+            <div class="card skill-card">
+                <div class="card-icon">🌍</div>
+                <h3>Languages</h3>
+                <p>English, Hindi, and German (currently at A2 level).</p>
+                <div class="card-pills">
+                    <span class="pill">English</span><span class="pill">Hindi</span><span class="pill">Deutsch A2</span>
+                </div>
+            </div>
+            <div class="card skill-card">
+                <div class="card-icon">🎨</div>
+                <h3>Creative Arts</h3>
+                <p>Passionate artist, specializing in graphite & charcoal sketching with a strong design thinking perspective.</p>
+                <div class="card-pills">
+                    <span class="pill">Sketching</span><span class="pill">Design</span><span class="pill">Badminton</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section section-alt">
+        <div class="section-label">02 / Experience</div>
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card">
+                    <div class="tl-year">2025 – Present</div>
+                    <h3>Management Trainee</h3>
+                    <p class="subtitle">New Fitness Factory</p>
+                    <p>Applying management principles to daily operations and learning the intricacies of the business environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" class="section">
+        <div class="section-label">03 / Education</div>
+        <h2>Education</h2>
+        <div class="card-container">
+            <div class="card edu-card featured-card">
+                <div class="edu-badge">Current</div>
+                <h3>BBA in Digital Business & Entrepreneurship</h3>
+                <p class="subtitle">Indian Institute of Management (IIM) Bangalore</p>
+                <p>Blending business acumen with digital strategy at one of India's premier institutions.</p>
+            </div>
+            <div class="card edu-card">
+                <h3>11th & 12th Grade</h3>
+                <p class="subtitle">Dr. B.R. Ambedkar School of Specialised Excellence</p>
+                <p>Selected after cracking the highly competitive DBSE board exams.</p>
+            </div>
+            <div class="card edu-card">
+                <h3>10th Grade</h3>
+                <p class="subtitle">Sant Nirankari Public School</p>
+                <p>Completed foundational studies here.</p>
+            </div>
+        </div>
+    </section>  
+
+    <section id="contact" class="section section-alt">
+        <div class="section-label">04 / Contact</div>
+        <h2>Let's Connect</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>Whether you have a project in mind, want to collaborate, or just want to say hello — my inbox is always open.</p>
+                <div class="contact-links">
+                    <a href="#" class="contact-link">→ LinkedIn</a>
+                    <a href="#" class="contact-link">→ GitHub</a>
+                    <a href="#" class="contact-link">→ Email</a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or just say hi!" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message →</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="logo">VT.</div>
+            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML & CSS.</p>
+            <div class="footer-links">
+                <a href="codebase.html">Codebase</a>
+                <a href="ventures.html">Ventures</a>
+                <a href="creative.html">Creative</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle canvas for hero
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        for (let i = 0; i < 60; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5 + 0.5,
+                dx: (Math.random() - 0.5) * 0.4,
+                dy: (Math.random() - 0.5) * 0.4,
+                alpha: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0,255,65,${p.alpha})`;
+                ctx.fill();
+                p.x += p.dx; p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            });
+            // Draw connections
+            particles.forEach((p, i) => {
+                particles.slice(i+1).forEach(q => {
+                    const dist = Math.hypot(p.x - q.x, p.y - q.y);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0,255,65,${0.05 * (1 - dist/120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(q.x, q.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>

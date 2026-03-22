@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Codebase | Vishal Trivedi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">VT.</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="codebase.html" class="active">The Codebase</a></li>
+            <li><a href="ventures.html">Venture Forge</a></li>
+            <li><a href="creative.html">Creative Pursuits</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero hero-code">
+        <canvas id="codeCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-tag mono">~/projects</div>
+            <h1>The<br><span class="outline-text">Codebase</span></h1>
+            <p>Algorithms, Data Science, and Application Development</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="section-label">01 / Projects</div>
+        <h2>Featured Projects</h2>
+        <div class="card-container code-cards">
+            <div class="card project-card">
+                <div class="project-num">01</div>
+                <div class="project-status live">Live</div>
+                <h3>NFF Super App</h3>
+                <p class="subtitle">React · Vercel</p>
+                <p>Developing a comprehensive fitness application designed to seamlessly connect a network of gyms across India, managing everything from user interfaces to deployment.</p>
+                <div class="card-pills">
+                    <span class="pill">React</span><span class="pill">Vercel</span><span class="pill">Full-Stack</span>
+                </div>
+                <a href="#" class="card-link">View Project →</a>
+            </div>
+            <div class="card project-card">
+                <div class="project-num">02</div>
+                <div class="project-status building">Building</div>
+                <h3>Open Source Financial Tools</h3>
+                <p class="subtitle">Python · Pandas · NumPy</p>
+                <p>Building specialized financial Python projects and algorithms as part of a rigorous preparation roadmap for the Google Summer of Code (GSoC).</p>
+                <div class="card-pills">
+                    <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">GSoC</span>
+                </div>
+                <a href="#" class="card-link">View on GitHub →</a>
+            </div>
+            <div class="card project-card">
+                <div class="project-num">03</div>
+                <div class="project-status learning">Learning</div>
+                <h3>Predictive Modeling</h3>
+                <p class="subtitle">Machine Learning</p>
+                <p>Self-teaching core ML concepts to analyze complex datasets and build predictive models for real-world business applications.</p>
+                <div class="card-pills">
+                    <span class="pill">ML</span><span class="pill">scikit-learn</span><span class="pill">Data Science</span>
+                </div>
+                <a href="#" class="card-link">Explore →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt tech-stack-section">
+        <div class="section-label">02 / Stack</div>
+        <h2>Tech Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-item"><span class="tech-icon">🐍</span><span>Python</span></div>
+            
+            <div class="tech-item"><span class="tech-icon">🐼</span><span>Pandas</span></div>
+            <div class="tech-item"><span class="tech-icon">🔢</span><span>NumPy</span></div>
+            <div class="tech-item"><span class="tech-icon">🌐</span><span>HTML/CSS</span></div>
+            <div class="tech-item"><span class="tech-icon">☁️</span><span>Vercel</span></div>
+            <div class="tech-item"><span class="tech-icon">🤖</span><span>ML / AI</span></div>
+           
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="logo">VT.</div>
+            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML & CSS.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="ventures.html">Ventures</a>
+                <a href="creative.html">Creative</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const canvas = document.getElementById('codeCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const fontSize = 15;
+    const cols = Math.floor(canvas.width / fontSize);
+    const drops = Array.from({ length: cols }, () => Math.random() * -50);
+
+    // Richer character set — code-flavoured
+    const chars = "01{}[]()=>functionclassimportexportconstletvarreturnifelseforwhiledefprintnumpypandassklearn∑∂∇λ∈∅αβγδ".split('');
+
+    function drawRain() {
+        // Dark semi-transparent fade — lower alpha = longer tails
+        ctx.fillStyle = 'rgba(6, 10, 6, 0.04)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        drops.forEach((y, i) => {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            const x = i * fontSize;
+            const screenY = y * fontSize;
+
+            // Brightest "head" character
+            if (Math.random() > 0.95) {
+                ctx.fillStyle = '#ffffff';
+                ctx.shadowColor = '#00ff41';
+                ctx.shadowBlur = 8;
+            } else {
+                // Vary brightness along the column for depth
+                const brightness = Math.random() * 0.6 + 0.4;
+                ctx.fillStyle = `rgba(0, 255, 65, ${brightness})`;
+                ctx.shadowBlur = 0;
+            }
+
+            ctx.font = `${fontSize}px 'Space Mono', monospace`;
+            ctx.fillText(char, x, screenY);
+
+            // Reset column when it goes off screen
+            if (screenY > canvas.height && Math.random() > 0.97) {
+                drops[i] = -Math.floor(Math.random() * 20);
+            }
+            drops[i] += 0.5;
+        });
+
+        ctx.shadowBlur = 0;
+    }
+
+    setInterval(drawRain, 33); // ~30fps
+
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+</script>
+</body>
+</html>
