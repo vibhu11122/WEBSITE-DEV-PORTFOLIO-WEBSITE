@@ -17,7 +17,7 @@
     --font-mono: 'Space Mono', monospace;
 }
 
-/* --- Reset --- */
+
 *, *::before, *::after {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -261,9 +261,7 @@ body {
     50%       { transform: translateX(-50%) translateY(6px); }
 }
 
-/* =========================================
-   SECTIONS
-   ========================================= */
+
 .section {
     padding: 120px 5%;
     max-width: 1200px;
@@ -530,9 +528,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
     transform: translateY(-2px);
 }
 
-/* =========================================
-   CODEBASE PAGE — PROJECT CARDS
-   ========================================= */
+
 .project-card { position: relative; }
 
 .project-num {
@@ -593,7 +589,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
     letter-spacing: 0.15em;
 }
 
-/* Tech stack grid */
+
 .tech-stack-section { text-align: center; }
 
 .tech-grid {
@@ -628,9 +624,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 
 .tech-icon { font-size: 1.1rem; }
 
-/* =========================================
-   CREATIVE PAGE
-   ========================================= */
+
 .philosophy-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -665,9 +659,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
     line-height: 1.8;
 }
 
-/* =========================================
-   VENTURE PAGE
-   ========================================= */
+
 .venture-card { position: relative; }
 
 .venture-icon {
@@ -684,7 +676,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
     margin-bottom: 0.5rem;
 }
 
-/* Metrics */
+
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -724,9 +716,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
     color: var(--text-muted);
 }
 
-/* =========================================
-   FOOTER
-   ========================================= */
+
 footer {
     border-top: 1px solid var(--card-border);
     padding: 3rem 5%;
@@ -766,9 +756,7 @@ footer p {
 
 .footer-links a:hover { color: var(--neon-green); }
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
+
 @media (max-width: 768px) {
     .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.75rem; }
