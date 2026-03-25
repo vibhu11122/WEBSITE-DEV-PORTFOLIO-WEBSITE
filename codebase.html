@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+1<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -109,11 +109,11 @@
     const cols = Math.floor(canvas.width / fontSize);
     const drops = Array.from({ length: cols }, () => Math.random() * -50);
 
-    // Richer character set — code-flavoured
+
     const chars = "01{}[]()=>functionclassimportexportconstletvarreturnifelseforwhiledefprintnumpypandassklearn∑∂∇λ∈∅αβγδ".split('');
 
     function drawRain() {
-        // Dark semi-transparent fade — lower alpha = longer tails
+       
         ctx.fillStyle = 'rgba(6, 10, 6, 0.04)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -122,13 +122,13 @@
             const x = i * fontSize;
             const screenY = y * fontSize;
 
-            // Brightest "head" character
+          
             if (Math.random() > 0.95) {
                 ctx.fillStyle = '#ffffff';
                 ctx.shadowColor = '#00ff41';
                 ctx.shadowBlur = 8;
             } else {
-                // Vary brightness along the column for depth
+               
                 const brightness = Math.random() * 0.6 + 0.4;
                 ctx.fillStyle = `rgba(0, 255, 65, ${brightness})`;
                 ctx.shadowBlur = 0;
@@ -137,7 +137,7 @@
             ctx.font = `${fontSize}px 'Space Mono', monospace`;
             ctx.fillText(char, x, screenY);
 
-            // Reset column when it goes off screen
+           
             if (screenY > canvas.height && Math.random() > 0.97) {
                 drops[i] = -Math.floor(Math.random() * 20);
             }
