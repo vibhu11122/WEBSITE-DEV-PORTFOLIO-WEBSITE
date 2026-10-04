@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishal Trivedi | Portfolio</title>
+    <meta name="description" content="Vishal Trivedi — BBA DBE @ IIM Bangalore, Management Trainee, and self-taught coder exploring Machine Learning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-   <nav id="navbar">
-        <div class="logo">VT.</div>
+    <div class="scroll-progress"></div>
+
+    <nav id="navbar">
+        <div class="logo"><a href="index.html">VT.</a></div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="codebase.html">The Codebase</a></li>
             <li><a href="ventures.html">Venture Forge</a></li>
             <li><a href="creative.html">Creative Pursuits</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
 
     <header id="home" class="hero hero-main">
@@ -24,30 +29,58 @@
             <div class="hero-tag">Portfolio 2026</div>
             <h1>Vishal<br><span class="outline-text">Trivedi</span></h1>
             <p>
-    <a href="ventures.html" class="hero-link">Management Trainee</a>
-    · 
-    <a href="codebase.html" class="hero-link">Self-Taught Coder</a>
-    · 
-    <a href="https://dbe.iimb.ac.in/" target="_blank" class="hero-link">BBA DBE @ IIM Bangalore</a>
-</p>
+                I build with <span class="typed" data-words='["Python", "scikit-learn", "TensorFlow", "Pandas", "curiosity"]'></span><br>
+                <a href="ventures.html" class="hero-link">Management Trainee</a><span class="hero-dot">·</span>
+                <a href="codebase.html" class="hero-link">Self-Taught Coder</a><span class="hero-dot">·</span>
+                <a href="https://dbe.iimb.ac.in/" target="_blank" rel="noopener" class="hero-link">BBA DBE @ IIM Bangalore</a>
+            </p>
             <div class="hero-cta">
-                <a href="codebase.html" class="btn-primary">View Projects</a>
+                <a href="codebase.html" class="btn-primary">View Projects →</a>
                 <a href="#contact" class="btn-ghost">Get in Touch</a>
             </div>
         </div>
-        <div class="hero-scroll-hint">scroll ↓</div>
+        <div class="hero-scroll-hint">scroll</div>
     </header>
+
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <!-- Two identical runs so the loop is seamless -->
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="">Python</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/scikitlearn/scikitlearn-original.svg" alt="">scikit-learn</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tensorflow/tensorflow-original.svg" alt="">TensorFlow</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/keras/keras-original.svg" alt="">Keras</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pytorch/pytorch-original.svg" alt="">PyTorch</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pandas/pandas-original.svg" alt="">Pandas</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/numpy/numpy-original.svg" alt="">NumPy</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/matplotlib/matplotlib-original.svg" alt="">Matplotlib</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jupyter/jupyter-original.svg" alt="">Jupyter</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/opencv/opencv-original.svg" alt="">OpenCV</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="">React</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="">Python</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/scikitlearn/scikitlearn-original.svg" alt="">scikit-learn</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tensorflow/tensorflow-original.svg" alt="">TensorFlow</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/keras/keras-original.svg" alt="">Keras</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pytorch/pytorch-original.svg" alt="">PyTorch</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pandas/pandas-original.svg" alt="">Pandas</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/numpy/numpy-original.svg" alt="">NumPy</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/matplotlib/matplotlib-original.svg" alt="">Matplotlib</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jupyter/jupyter-original.svg" alt="">Jupyter</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/opencv/opencv-original.svg" alt="">OpenCV</span>
+            <span class="marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="">React</span>
+        </div>
+    </div>
 
     <section id="skills" class="section">
         <div class="section-label">01 / Skills</div>
         <h2>What I Do</h2>
         <div class="card-container">
-            <div class="card skill-card">
-                <div class="card-icon">💻</div>
-                <h3>Programming</h3>
-                <p>Python, NumPy, Pandas. Currently self-teaching Machine Learning to analyze data and build predictive models.</p>
+            <div class="card skill-card featured-card">
+                <div class="card-icon">🧠</div>
+                <h3>Programming &amp; Machine Learning</h3>
+                <p>Python-first. I wrangle data with NumPy &amp; Pandas, build classical models with scikit-learn, and train neural networks with TensorFlow &amp; Keras — turning data into predictions that drive business decisions.</p>
                 <div class="card-pills">
-                    <span class="pill">Python</span><span class="pill">NumPy</span><span class="pill">ML</span>
+                    <span class="pill">Python</span><span class="pill">NumPy</span><span class="pill">Pandas</span>
+                    <span class="pill ml">scikit-learn</span><span class="pill ml">TensorFlow</span><span class="pill ml">Keras</span><span class="pill ml">PyTorch</span>
                 </div>
             </div>
             <div class="card skill-card">
@@ -61,7 +94,7 @@
             <div class="card skill-card">
                 <div class="card-icon">🎨</div>
                 <h3>Creative Arts</h3>
-                <p>Passionate artist, specializing in graphite & charcoal sketching with a strong design thinking perspective.</p>
+                <p>Passionate artist, specializing in graphite &amp; charcoal sketching with a strong design thinking perspective.</p>
                 <div class="card-pills">
                     <span class="pill">Sketching</span><span class="pill">Design</span><span class="pill">Badminton</span>
                 </div>
@@ -84,19 +117,19 @@
             </div>
         </div>
     </section>
-    
+
     <section id="education" class="section">
         <div class="section-label">03 / Education</div>
         <h2>Education</h2>
         <div class="card-container">
             <div class="card edu-card featured-card">
                 <div class="edu-badge">Current</div>
-                <h3>BBA in Digital Business & Entrepreneurship</h3>
+                <h3>BBA in Digital Business &amp; Entrepreneurship</h3>
                 <p class="subtitle">Indian Institute of Management (IIM) Bangalore</p>
                 <p>Blending business acumen with digital strategy at one of India's premier institutions.</p>
             </div>
             <div class="card edu-card">
-                <h3>11th & 12th Grade</h3>
+                <h3>11th &amp; 12th Grade</h3>
                 <p class="subtitle">Dr. B.R. Ambedkar School of Specialised Excellence</p>
                 <p>Selected after cracking the highly competitive DBSE board exams.</p>
             </div>
@@ -106,18 +139,18 @@
                 <p>Completed foundational studies here.</p>
             </div>
         </div>
-    </section>  
+    </section>
 
     <section id="contact" class="section section-alt">
         <div class="section-label">04 / Contact</div>
-        <h2>Let's Connect</h2>
+        <h2>Let's <span class="gradient-text">Connect</span></h2>
         <div class="contact-container">
             <div class="contact-info">
                 <p>Whether you have a project in mind, want to collaborate, or just want to say hello — my inbox is always open.</p>
                 <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/vishal-trivedi-620a87344/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BmuX%2BKqnsTouKxH3caEK%2FUw%3D%3D" class="Linkedin">→ LinkedIn</a>
-                    <a href="https://github.com/vibhu11122" class="Github">→ GitHub</a>
-                    <a href="vibhu3344432@gmail.com" class="Email">→ Email</a>
+                    <a href="https://www.linkedin.com/in/vishal-trivedi-620a87344/" target="_blank" rel="noopener" class="contact-link"><span>LinkedIn</span><span>↗</span></a>
+                    <a href="https://github.com/vibhu11122" target="_blank" rel="noopener" class="contact-link"><span>GitHub</span><span>↗</span></a>
+                    <a href="mailto:vibhu3344432@gmail.com" class="contact-link"><span>vibhu3344432@gmail.com</span><span>↗</span></a>
                 </div>
             </div>
             <form class="contact-form">
@@ -134,6 +167,7 @@
                     <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or just say hi!" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message →</button>
+                <p class="form-note">Opens your email app with the message pre-filled.</p>
             </form>
         </div>
     </section>
@@ -141,7 +175,7 @@
     <footer>
         <div class="footer-inner">
             <div class="logo">VT.</div>
-            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML & CSS.</p>
+            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML, CSS &amp; a little JS.</p>
             <div class="footer-links">
                 <a href="codebase.html">Codebase</a>
                 <a href="ventures.html">Ventures</a>
@@ -150,62 +184,85 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
-        // Particle canvas for hero
+        // Hero constellation — particles drift, link up, and reach toward the cursor
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        const mouse = { x: null, y: null };
+        let particles = [];
 
-        const particles = [];
-        for (let i = 0; i < 60; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 1.5 + 0.5,
-                dx: (Math.random() - 0.5) * 0.4,
-                dy: (Math.random() - 0.5) * 0.4,
-                alpha: Math.random() * 0.5 + 0.1
-            });
+        function setup() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = canvas.offsetWidth * dpr;
+            canvas.height = canvas.offsetHeight * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const w = canvas.offsetWidth, h = canvas.offsetHeight;
+            const count = Math.min(90, Math.floor((w * h) / 16000));
+            particles = Array.from({ length: count }, () => ({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * 1.6 + 0.4,
+                dx: (Math.random() - 0.5) * 0.35,
+                dy: (Math.random() - 0.5) * 0.35,
+                alpha: Math.random() * 0.5 + 0.2,
+                hue: Math.random() < 0.7 ? '61,255,154' : '46,230,255'
+            }));
         }
 
         function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
+            const w = canvas.offsetWidth, h = canvas.offsetHeight;
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.dx; p.y += p.dy;
+                if (p.x < 0 || p.x > w) p.dx *= -1;
+                if (p.y < 0 || p.y > h) p.dy *= -1;
+
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(0,255,65,${p.alpha})`;
+                ctx.fillStyle = `rgba(${p.hue},${p.alpha})`;
                 ctx.fill();
-                p.x += p.dx; p.y += p.dy;
-                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-            });
-            // Draw connections
-            particles.forEach((p, i) => {
-                particles.slice(i+1).forEach(q => {
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const q = particles[j];
                     const dist = Math.hypot(p.x - q.x, p.y - q.y);
-                    if (dist < 120) {
+                    if (dist < 130) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0,255,65,${0.05 * (1 - dist/120)})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(61,255,154,${0.09 * (1 - dist / 130)})`;
+                        ctx.lineWidth = 0.6;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(q.x, q.y);
                         ctx.stroke();
                     }
-                });
-            });
+                }
+
+                if (mouse.x !== null) {
+                    const md = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+                    if (md < 180) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(46,230,255,${0.25 * (1 - md / 180)})`;
+                        ctx.lineWidth = 0.7;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            }
             requestAnimationFrame(animateParticles);
         }
-        animateParticles();
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        const hero = document.getElementById('home');
+        hero.addEventListener('pointermove', e => {
+            const r = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - r.left;
+            mouse.y = e.clientY - r.top;
         });
+        hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = null; });
+
+        setup();
+        animateParticles();
+        window.addEventListener('resize', setup);
     </script>
 </body>
 </html>
