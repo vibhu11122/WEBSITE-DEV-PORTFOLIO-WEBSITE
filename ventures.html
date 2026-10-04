@@ -25,6 +25,7 @@
     </nav>
 
     <header class="hero hero-venture">
+        <canvas id="marketCanvas"></canvas>
       
         <svg class="bg-svg" viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
 
@@ -151,10 +152,18 @@
             <div class="hero-tag">Management · Operations · Scale</div>
             <h1>Venture<br><span class="outline-text">Forge</span></h1>
             <p>Driving Growth, Managing Operations, and Scaling Businesses.</p>
+            <div class="hero-cta">
+                <a href="#finance-lab" class="btn-primary">Try the Finance Lab →</a>
+                <a href="#experience" class="btn-ghost">Experience</a>
+            </div>
         </div>
     </header>
 
-    <section class="section">
+    <div class="marquee ticker" aria-hidden="true">
+        <div class="marquee-track"><span class="marquee-item ticker-item">Equity Derivatives<span class="sep">◆</span></span><span class="marquee-item ticker-item">Mutual Funds<span class="sep">◆</span></span><span class="marquee-item ticker-item">Financial Reporting<span class="sep">◆</span></span><span class="marquee-item ticker-item">Supply Chain<span class="sep">◆</span></span><span class="marquee-item ticker-item">Procurement<span class="sep">◆</span></span><span class="marquee-item ticker-item">Imports<span class="sep">◆</span></span><span class="marquee-item ticker-item">Operations<span class="sep">◆</span></span><span class="marquee-item ticker-item">Strategy<span class="sep">◆</span></span><span class="marquee-item ticker-item">Unit Economics<span class="sep">◆</span></span><span class="marquee-item ticker-item">Risk Management<span class="sep">◆</span></span><span class="marquee-item ticker-item">Equity Derivatives<span class="sep">◆</span></span><span class="marquee-item ticker-item">Mutual Funds<span class="sep">◆</span></span><span class="marquee-item ticker-item">Financial Reporting<span class="sep">◆</span></span><span class="marquee-item ticker-item">Supply Chain<span class="sep">◆</span></span><span class="marquee-item ticker-item">Procurement<span class="sep">◆</span></span><span class="marquee-item ticker-item">Imports<span class="sep">◆</span></span><span class="marquee-item ticker-item">Operations<span class="sep">◆</span></span><span class="marquee-item ticker-item">Strategy<span class="sep">◆</span></span><span class="marquee-item ticker-item">Unit Economics<span class="sep">◆</span></span><span class="marquee-item ticker-item">Risk Management<span class="sep">◆</span></span></div>
+    </div>
+
+    <section id="experience" class="section">
         <div class="section-label">01 / Experience</div>
         <h2>Entrepreneurial Experience</h2>
         <div class="card-container venture-cards">
@@ -181,12 +190,94 @@
         </div>
     </section>
 
-    <section class="section section-alt">
-        <div class="section-label">02 / Impact</div>
+
+    <section id="finance-lab" class="section section-alt">
+        <div class="section-label">02 / Finance Lab</div>
+        <h2>Finance <span class="gradient-text">Lab</span></h2>
+        <p class="section-intro">Interactive tools I built in plain JavaScript, putting my NISM coursework and operations experience into practice. Drag the sliders — every chart recalculates live.</p>
+
+        <div class="lab-tabs" role="tablist">
+            <button class="lab-tab active" role="tab" aria-selected="true" data-tool="sip"><span>01</span>SIP Planner</button>
+            <button class="lab-tab" role="tab" aria-selected="false" data-tool="options"><span>02</span>Options Payoff</button>
+            <button class="lab-tab" role="tab" aria-selected="false" data-tool="eoq"><span>03</span>EOQ Optimiser</button>
+        </div>
+
+        <!-- SIP -->
+        <div class="card lab-panel active" id="tool-sip" role="tabpanel">
+            <div class="lab-copy">
+                <div class="venture-tag">Mutual Funds · NISM Series V</div>
+                <h3>SIP Growth Planner</h3>
+                <p>See how a monthly Systematic Investment Plan compounds over time — and how much of the final corpus is pure returns.</p>
+                <label class="lab-field">Monthly SIP <output id="sipAmtOut"></output>
+                    <input type="range" id="sipAmt" min="500" max="100000" step="500" value="10000"></label>
+                <label class="lab-field">Duration <output id="sipYrsOut"></output>
+                    <input type="range" id="sipYrs" min="1" max="40" step="1" value="15"></label>
+                <label class="lab-field">Expected return (p.a.) <output id="sipRateOut"></output>
+                    <input type="range" id="sipRate" min="1" max="20" step="0.5" value="12"></label>
+                <div class="lab-stats">
+                    <div><span>Invested</span><strong id="sipInvested"></strong></div>
+                    <div><span>Est. returns</span><strong id="sipGains" class="up"></strong></div>
+                    <div><span>Future value</span><strong id="sipTotal" class="big"></strong></div>
+                </div>
+            </div>
+            <div class="lab-chart"><svg id="sipChart" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="SIP growth chart"></svg>
+                <div class="lab-legend"><span class="lg-a">Total value</span><span class="lg-b">Amount invested</span></div></div>
+        </div>
+
+        <!-- Options -->
+        <div class="card lab-panel" id="tool-options" role="tabpanel" hidden>
+            <div class="lab-copy">
+                <div class="venture-tag">Equity Derivatives · NISM Series VIII</div>
+                <h3>Options Payoff Visualiser</h3>
+                <p>Payoff at expiry for classic option strategies — with breakeven, maximum loss and maximum profit worked out for you.</p>
+                <div class="lab-seg" id="optStrategy">
+                    <button class="active" data-s="call">Long Call</button><button data-s="put">Long Put</button><button data-s="straddle">Long Straddle</button>
+                </div>
+                <label class="lab-field">Strike price <output id="optStrikeOut"></output>
+                    <input type="range" id="optStrike" min="100" max="1000" step="10" value="500"></label>
+                <label class="lab-field">Premium paid <output id="optPremOut"></output>
+                    <input type="range" id="optPrem" min="1" max="100" step="1" value="20"></label>
+                <label class="lab-field">Quantity <output id="optQtyOut"></output>
+                    <input type="range" id="optQty" min="1" max="500" step="1" value="50"></label>
+                <div class="lab-stats">
+                    <div><span>Breakeven</span><strong id="optBE"></strong></div>
+                    <div><span>Max loss</span><strong id="optLoss" class="down"></strong></div>
+                    <div><span>Max profit</span><strong id="optProfit" class="up"></strong></div>
+                </div>
+            </div>
+            <div class="lab-chart"><svg id="optChart" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Option payoff chart"></svg>
+                <div class="lab-legend"><span class="lg-a">Profit</span><span class="lg-c">Loss</span><span class="lg-b">Underlying price at expiry →</span></div></div>
+        </div>
+
+        <!-- EOQ -->
+        <div class="card lab-panel" id="tool-eoq" role="tabpanel" hidden>
+            <div class="lab-copy">
+                <div class="venture-tag">Supply Chain · Operations</div>
+                <h3>EOQ Optimiser</h3>
+                <p>The Economic Order Quantity balances ordering costs against holding costs — the same trade-off I manage when procuring gym equipment.</p>
+                <label class="lab-field">Annual demand (units) <output id="eoqDOut"></output>
+                    <input type="range" id="eoqD" min="100" max="20000" step="100" value="2400"></label>
+                <label class="lab-field">Cost per order <output id="eoqSOut"></output>
+                    <input type="range" id="eoqS" min="100" max="20000" step="100" value="1500"></label>
+                <label class="lab-field">Holding cost / unit / year <output id="eoqHOut"></output>
+                    <input type="range" id="eoqH" min="5" max="2000" step="5" value="120"></label>
+                <div class="lab-stats">
+                    <div><span>Optimal order</span><strong id="eoqQ" class="big"></strong></div>
+                    <div><span>Orders / year</span><strong id="eoqN"></strong></div>
+                    <div><span>Min. annual cost</span><strong id="eoqTC"></strong></div>
+                </div>
+            </div>
+            <div class="lab-chart"><svg id="eoqChart" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="EOQ cost curves"></svg>
+                <div class="lab-legend"><span class="lg-a">Total cost</span><span class="lg-b">Ordering cost</span><span class="lg-d">Holding cost</span></div></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-label">03 / Impact</div>
         <h2>Key Metrics</h2>
         <div class="metrics-grid">
             <div class="metric-item">
-                <div class="metric-num">2+</div>
+                <div class="metric-num" data-count="2" data-suffix="+">2+</div>
                 <div class="metric-label">Companies Managed</div>
             </div>
             <div class="metric-item">
@@ -196,6 +287,10 @@
             <div class="metric-item">
                 <div class="metric-num">IIM · IIT</div>
                 <div class="metric-label">Academic Backing</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num" data-count="2" data-prefix="×">×2</div>
+                <div class="metric-label">NISM Certifications</div>
             </div>
             <div class="metric-item">
                 <div class="metric-num">B2B</div>
@@ -218,5 +313,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="ventures.js"></script>
 </body>
 </html>
