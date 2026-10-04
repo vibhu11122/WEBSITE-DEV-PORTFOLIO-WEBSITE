@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venture Forge | Vishal Trivedi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="scroll-progress"></div>
+
     <nav id="navbar">
-        <div class="logo">VT.</div>
+        <div class="logo"><a href="index.html">VT.</a></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="codebase.html">The Codebase</a></li>
             <li><a href="ventures.html" class="active">Venture Forge</a></li>
             <li><a href="creative.html">Creative Pursuits</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
 
     <header class="hero hero-venture">
@@ -201,7 +205,7 @@
     <footer>
         <div class="footer-inner">
             <div class="logo">VT.</div>
-            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML & CSS.</p>
+            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML, CSS &amp; a little JS.</p>
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="codebase.html">Codebase</a>
@@ -210,10 +214,6 @@
         </div>
     </footer>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

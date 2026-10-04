@@ -1,21 +1,26 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Codebase | Vishal Trivedi</title>
+    <meta name="description" content="Projects and tech stack of Vishal Trivedi — Python, data science and machine learning with scikit-learn, TensorFlow, Keras and PyTorch.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="scroll-progress"></div>
+
     <nav id="navbar">
-        <div class="logo">VT.</div>
+        <div class="logo"><a href="index.html">VT.</a></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="codebase.html" class="active">The Codebase</a></li>
             <li><a href="ventures.html">Venture Forge</a></li>
             <li><a href="creative.html">Creative Pursuits</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
 
     <header class="hero hero-code">
@@ -23,7 +28,11 @@
         <div class="hero-content">
             <div class="hero-tag mono">~/projects</div>
             <h1>The<br><span class="outline-text">Codebase</span></h1>
-            <p>Algorithms, Data Science, and Application Development</p>
+            <p>Algorithms, Data Science, Machine Learning, and Application Development.</p>
+            <div class="hero-cta">
+                <a href="#stack" class="btn-primary">See the Stack →</a>
+                <a href="https://github.com/vibhu11122" target="_blank" rel="noopener" class="btn-ghost">GitHub ↗</a>
+            </div>
         </div>
     </header>
 
@@ -51,41 +60,118 @@
                 <div class="card-pills">
                     <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">GSoC</span>
                 </div>
-                <a href="#" class="card-link">View on GitHub →</a>
+                <a href="https://github.com/vibhu11122" target="_blank" rel="noopener" class="card-link">View on GitHub →</a>
             </div>
-            <div class="card project-card">
+            <div class="card project-card featured-card">
                 <div class="project-num">03</div>
                 <div class="project-status learning">Learning</div>
                 <h3>Predictive Modeling</h3>
-                <p class="subtitle">Machine Learning</p>
-                <p>Self-teaching core ML concepts to analyze complex datasets and build predictive models for real-world business applications.</p>
+                <p class="subtitle">Machine Learning · Deep Learning</p>
+                <p>Analyzing complex datasets and building predictive models for real-world business problems — from regression and classification pipelines in scikit-learn to neural networks in TensorFlow &amp; Keras.</p>
                 <div class="card-pills">
-                    <span class="pill">ML</span><span class="pill">scikit-learn</span><span class="pill">Data Science</span>
+                    <span class="pill ml">scikit-learn</span><span class="pill ml">TensorFlow</span><span class="pill ml">Keras</span><span class="pill">Pandas</span><span class="pill">Matplotlib</span>
                 </div>
-                <a href="#" class="card-link">Explore →</a>
+                <a href="#ml" class="card-link">Explore →</a>
             </div>
         </div>
     </section>
 
-    <section class="section section-alt tech-stack-section">
+    <section id="stack" class="section section-alt tech-stack-section">
         <div class="section-label">02 / Stack</div>
-        <h2>Tech Stack</h2>
-        <div class="tech-grid">
-            <div class="tech-item"><span class="tech-icon">🐍</span><span>Python</span></div>
-            
-            <div class="tech-item"><span class="tech-icon">🐼</span><span>Pandas</span></div>
-            <div class="tech-item"><span class="tech-icon">🔢</span><span>NumPy</span></div>
-            <div class="tech-item"><span class="tech-icon">🌐</span><span>HTML/CSS</span></div>
-            <div class="tech-item"><span class="tech-icon">☁️</span><span>Vercel</span></div>
-            <div class="tech-item"><span class="tech-icon">🤖</span><span>ML / AI</span></div>
-           
+        <h2>Tech <span class="gradient-text">Stack</span></h2>
+        <p class="section-intro">The tools I reach for — from cleaning raw data to training and shipping models.</p>
+
+        <div class="stack-groups">
+            <div class="card stack-group ml">
+                <div class="stack-group-head"><h3>Machine Learning &amp; AI</h3><span>Models</span></div>
+                <div class="stack-grid">
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/scikitlearn/scikitlearn-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">scikit-learn</span><span class="tech-use">classical ML</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tensorflow/tensorflow-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">TensorFlow</span><span class="tech-use">deep learning</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/keras/keras-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Keras</span><span class="tech-use">neural nets</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pytorch/pytorch-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">PyTorch</span><span class="tech-use">deep learning</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/opencv/opencv-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">OpenCV</span><span class="tech-use">computer vision</span></span></div>
+                    <div class="tech-item"><span class="tech-icon">🤗</span><span class="tech-meta"><span class="tech-name">Hugging Face</span><span class="tech-use">NLP / LLMs</span></span></div>
+                    <div class="tech-item"><span class="tech-icon text">XGB</span><span class="tech-meta"><span class="tech-name">XGBoost</span><span class="tech-use">gradient boosting</span></span></div>
+                </div>
+            </div>
+
+            <div class="card stack-group">
+                <div class="stack-group-head"><h3>Data Science</h3><span>Analysis</span></div>
+                <div class="stack-grid">
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Python</span><span class="tech-use">core language</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pandas/pandas-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Pandas</span><span class="tech-use">dataframes</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/numpy/numpy-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">NumPy</span><span class="tech-use">numerics</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/matplotlib/matplotlib-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Matplotlib</span><span class="tech-use">plotting</span></span></div>
+                    <div class="tech-item"><span class="tech-icon text">sns</span><span class="tech-meta"><span class="tech-name">Seaborn</span><span class="tech-use">statistical viz</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/plotly/plotly-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Plotly</span><span class="tech-use">interactive charts</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">SQL</span><span class="tech-use">querying data</span></span></div>
+                </div>
+            </div>
+
+            <div class="card stack-group">
+                <div class="stack-group-head"><h3>Notebooks &amp; Platforms</h3><span>Workflow</span></div>
+                <div class="stack-grid">
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jupyter/jupyter-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Jupyter</span><span class="tech-use">experiments</span></span></div>
+                    <div class="tech-item"><span class="tech-icon text">CO</span><span class="tech-meta"><span class="tech-name">Google Colab</span><span class="tech-use">GPU notebooks</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/kaggle/kaggle-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Kaggle</span><span class="tech-use">datasets &amp; comps</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/anaconda/anaconda-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Anaconda</span><span class="tech-use">environments</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/streamlit/streamlit-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Streamlit</span><span class="tech-use">ML demos</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Git</span><span class="tech-use">version control</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">GitHub</span><span class="tech-use">collaboration</span></span></div>
+                </div>
+            </div>
+
+            <div class="card stack-group">
+                <div class="stack-group-head"><h3>Web &amp; Deployment</h3><span>Shipping</span></div>
+                <div class="stack-grid">
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">HTML5</span><span class="tech-use">structure</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">CSS3</span><span class="tech-use">styling</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">JavaScript</span><span class="tech-use">interactivity</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">React</span><span class="tech-use">UI apps</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/fastapi/fastapi-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">FastAPI</span><span class="tech-use">model APIs</span></span></div>
+                    <div class="tech-item"><span class="tech-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vercel/vercel-original.svg" alt=""></span><span class="tech-meta"><span class="tech-name">Vercel</span><span class="tech-use">deployment</span></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ml" class="section">
+        <div class="section-label">03 / Workflow</div>
+        <h2>How I Approach <span class="gradient-text">ML</span></h2>
+        <p class="section-intro">A business-first pipeline: every model starts with a question worth answering.</p>
+        <div class="pipeline">
+            <div class="card pipeline-step">
+                <h3>Frame</h3>
+                <p>Translate a business problem into a measurable prediction target.</p>
+                <div class="tools">domain · metrics</div>
+            </div>
+            <div class="card pipeline-step">
+                <h3>Explore</h3>
+                <p>Clean, join and visualize the data to find signal and spot leakage.</p>
+                <div class="tools">Pandas · NumPy · Seaborn</div>
+            </div>
+            <div class="card pipeline-step">
+                <h3>Model</h3>
+                <p>Start with strong baselines, then move to boosted trees or neural nets.</p>
+                <div class="tools">scikit-learn · XGBoost · TensorFlow</div>
+            </div>
+            <div class="card pipeline-step">
+                <h3>Evaluate</h3>
+                <p>Cross-validate, tune hyperparameters and check errors where they matter.</p>
+                <div class="tools">GridSearchCV · Keras callbacks</div>
+            </div>
+            <div class="card pipeline-step">
+                <h3>Ship</h3>
+                <p>Wrap the model in a simple app or API so people can actually use it.</p>
+                <div class="tools">Streamlit · FastAPI · Vercel</div>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-inner">
             <div class="logo">VT.</div>
-            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML & CSS.</p>
+            <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML, CSS &amp; a little JS.</p>
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="ventures.html">Ventures</a>
@@ -94,64 +180,56 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
-    const canvas = document.getElementById('codeCanvas');
-    const ctx = canvas.getContext('2d');
+        // Code-rain hero, seeded with Python / ML keywords
+        const canvas = document.getElementById('codeCanvas');
+        const ctx = canvas.getContext('2d');
+        const fontSize = 15;
+        const chars = "01{}[]()=>λ∑∂∇∈αβγσθ".split('')
+            .concat(['fit', 'predict', 'np', 'pd', 'tf', 'keras', 'sklearn', 'def', 'import', 'loss', 'relu', 'X', 'y']);
+        let drops = [];
 
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
+        function resize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            const cols = Math.floor(canvas.width / (fontSize * 1.4));
+            drops = Array.from({ length: cols }, (_, i) => drops[i] ?? Math.random() * -50);
+        }
+        resize();
+        window.addEventListener('resize', resize);
 
-    const fontSize = 15;
-    const cols = Math.floor(canvas.width / fontSize);
-    const drops = Array.from({ length: cols }, () => Math.random() * -50);
-
-
-    const chars = "01{}[]()=>functionclassimportexportconstletvarreturnifelseforwhiledefprintnumpypandassklearn∑∂∇λ∈∅αβγδ".split('');
-
-    function drawRain() {
-       
-        ctx.fillStyle = 'rgba(6, 10, 6, 0.04)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        drops.forEach((y, i) => {
-            const char = chars[Math.floor(Math.random() * chars.length)];
-            const x = i * fontSize;
-            const screenY = y * fontSize;
-
-          
-            if (Math.random() > 0.95) {
-                ctx.fillStyle = '#ffffff';
-                ctx.shadowColor = '#00ff41';
-                ctx.shadowBlur = 8;
-            } else {
-               
-                const brightness = Math.random() * 0.6 + 0.4;
-                ctx.fillStyle = `rgba(0, 255, 65, ${brightness})`;
-                ctx.shadowBlur = 0;
-            }
-
+        function drawRain() {
+            ctx.fillStyle = 'rgba(7, 9, 10, 0.08)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.font = `${fontSize}px 'Space Mono', monospace`;
-            ctx.fillText(char, x, screenY);
 
-           
-            if (screenY > canvas.height && Math.random() > 0.97) {
-                drops[i] = -Math.floor(Math.random() * 20);
-            }
-            drops[i] += 0.5;
-        });
+            drops.forEach((y, i) => {
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * fontSize * 1.4;
+                const screenY = y * fontSize;
 
-        ctx.shadowBlur = 0;
-    }
+                if (Math.random() > 0.975) {
+                    ctx.fillStyle = '#eafff3';
+                    ctx.shadowColor = '#3dff9a';
+                    ctx.shadowBlur = 10;
+                } else {
+                    ctx.fillStyle = Math.random() > 0.85
+                        ? `rgba(179, 136, 255, ${Math.random() * 0.5 + 0.3})`
+                        : `rgba(61, 255, 154, ${Math.random() * 0.5 + 0.3})`;
+                    ctx.shadowBlur = 0;
+                }
+                ctx.fillText(char, x, screenY);
 
-    setInterval(drawRain, 33); // ~30fps
+                if (screenY > canvas.height && Math.random() > 0.975) {
+                    drops[i] = -Math.floor(Math.random() * 20);
+                }
+                drops[i] += 0.5;
+            });
+            ctx.shadowBlur = 0;
+        }
 
-    window.addEventListener('scroll', () => {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
-</script>
+        setInterval(drawRain, 40);
+    </script>
 </body>
 </html>
