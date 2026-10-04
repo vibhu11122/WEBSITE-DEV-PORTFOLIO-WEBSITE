@@ -7,6 +7,7 @@
     <meta name="description" content="Vishal Trivedi — BBA DBE @ IIM Bangalore, BSc Data Science @ IIT Madras, Management Trainee, CS50 & CS50 AI graduate exploring Machine Learning.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;family=Syne:wght@500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -265,9 +266,9 @@
         });
         hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = null; });
 
-        setup();
+        // ResizeObserver keeps the canvas matched to the hero even if CSS loads late
+        new ResizeObserver(setup).observe(canvas);
         animateParticles();
-        window.addEventListener('resize', setup);
     </script>
 </body>
 </html>
