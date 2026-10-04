@@ -16,6 +16,7 @@
         <div class="logo"><a href="index.html">VT.</a></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
             <li><a href="codebase.html" class="active">The Codebase</a></li>
             <li><a href="ventures.html">Venture Forge</a></li>
             <li><a href="creative.html">Creative Pursuits</a></li>
@@ -189,6 +190,7 @@
             <div class="logo">VT.</div>
             <p>&copy; 2026 Vishal Trivedi. Handcrafted with HTML, CSS &amp; a little JS.</p>
             <div class="footer-links">
+                <a href="education.html">Education</a>
                 <a href="index.html">Home</a>
                 <a href="ventures.html">Ventures</a>
                 <a href="creative.html">Creative</a>
@@ -202,27 +204,27 @@
         const canvas = document.getElementById('codeCanvas');
         const ctx = canvas.getContext('2d');
         const fontSize = 15;
-        const chars = "01{}[]()=>λ∑∂∇∈αβγσθ".split('')
-            .concat(['fit', 'predict', 'np', 'pd', 'tf', 'keras', 'sklearn', 'def', 'import', 'loss', 'relu', 'X', 'y']);
+        const chars = "01{}[]()=>λ∑∂∇∈αβγσθ01fitpredictnumpypandassklearntensorflowkeras".split('');
         let drops = [];
 
         function resize() {
             canvas.width = canvas.offsetWidth;
             canvas.height = canvas.offsetHeight;
-            const cols = Math.floor(canvas.width / (fontSize * 1.4));
-            drops = Array.from({ length: cols }, (_, i) => drops[i] ?? Math.random() * -50);
+            const cols = Math.floor(canvas.width / (fontSize * 1.2));
+            // Start columns spread down the screen so the rain is visible immediately
+            drops = Array.from({ length: cols }, (_, i) => drops[i] ?? Math.random() * (canvas.height / fontSize) - 10);
         }
         resize();
         window.addEventListener('resize', resize);
 
         function drawRain() {
-            ctx.fillStyle = 'rgba(7, 9, 10, 0.08)';
+            ctx.fillStyle = 'rgba(7, 9, 10, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.font = `${fontSize}px 'Space Mono', monospace`;
 
             drops.forEach((y, i) => {
                 const char = chars[Math.floor(Math.random() * chars.length)];
-                const x = i * fontSize * 1.4;
+                const x = i * fontSize * 1.2;
                 const screenY = y * fontSize;
 
                 if (Math.random() > 0.975) {
