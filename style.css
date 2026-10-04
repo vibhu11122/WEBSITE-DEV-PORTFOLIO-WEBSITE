@@ -847,8 +847,13 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 /* =========================================================
    Projects
    ========================================================= */
+.code-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+
 .project-card { display: flex; flex-direction: column; }
-.project-card .card-link { margin-top: auto; padding-top: 1.4rem; }
+.project-card > .card-link,
+.project-card > .card-links { margin-top: auto; padding-top: 1.4rem; }
+
+.card-links { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 
 .project-num {
     font-family: var(--font-display);
