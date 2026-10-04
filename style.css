@@ -335,12 +335,13 @@ body::after {
 .hero p {
     font-size: clamp(1rem, 2vw, 1.15rem);
     color: var(--text-gray);
-    max-width: 620px;
+    max-width: 700px;
     margin: 0 auto 2.5rem;
     line-height: 1.8;
 }
 
 .hero-link {
+    white-space: nowrap;
     color: var(--text-white);
     text-decoration: none;
     background-image: linear-gradient(var(--accent), var(--accent));
@@ -847,7 +848,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 /* =========================================================
    Projects
    ========================================================= */
-.code-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.code-cards, .edu-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
 
 .project-card { display: flex; flex-direction: column; }
 .project-card > .card-link,
@@ -1143,7 +1144,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 .metric-num {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-size: clamp(1.5rem, 2.2vw, 2.1rem);
     white-space: nowrap;
     margin-bottom: 0.4rem;
     letter-spacing: -0.03em;
