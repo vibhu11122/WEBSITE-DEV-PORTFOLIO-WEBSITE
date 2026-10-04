@@ -1,0 +1,479 @@
+/* =========================================================
+   Creative Pursuits — "sketchbook" theme.
+   Re-points the shared design tokens at a warm paper palette,
+   so shared components (cards, pills, footer) restyle themselves.
+   ========================================================= */
+body.paper {
+    --bg-black: #f1ebdf;
+    --card-bg: #fbf8f1;
+    --surface: rgba(251, 248, 241, 0.8);
+    --card-border: rgba(40, 34, 25, 0.12);
+    --text-white: #1d1b18;
+    --text-gray: #4d4840;
+    --text-muted: #8c857a;
+    --accent: #0e9f5a;
+    --accent-2: #0f8fa8;
+    --accent-3: #7c4dff;
+    --accent-soft: rgba(14, 159, 90, 0.1);
+    --accent-line: rgba(14, 159, 90, 0.35);
+    --graphite: #2b2a2e;
+    --font-hand: 'Caveat', 'Segoe Print', cursive;
+
+    background-color: var(--bg-black);
+    /* faint sketchbook dot grid */
+    background-image: radial-gradient(rgba(40, 34, 25, 0.13) 1px, transparent 1.2px);
+    background-size: 26px 26px;
+}
+
+body.paper::after { opacity: 0.09; mix-blend-mode: multiply; }
+body.paper ::selection { background: #ffe066; color: #1d1b18; }
+
+.sr-only {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Keep the nav dark so it reads like a sticker on the page */
+.paper .nav-links { background: rgba(24, 23, 22, 0.88); border-color: transparent; }
+.paper .nav-links a { color: #c9c4ba; }
+.paper .nav-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.paper .nav-links a.active { color: #04130b; background: #3dff9a; }
+.paper #navbar.scrolled { background: rgba(241, 235, 223, 0.85); }
+.paper .nav-toggle { background: rgba(24, 23, 22, 0.9); }
+.paper .nav-toggle span { background: #f1ebdf; }
+.paper .logo { background: linear-gradient(120deg, #0e9f5a, #0f8fa8 60%, #7c4dff); -webkit-background-clip: text; background-clip: text; }
+@media (max-width: 860px) {
+    .paper .nav-links { background: rgba(24, 23, 22, 0.97); }
+}
+
+.paper .section-alt {
+    background: rgba(255, 252, 245, 0.55);
+    border-color: rgba(40, 34, 25, 0.08);
+}
+
+.paper .card { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03), 0 18px 40px -28px rgba(60, 45, 20, 0.45); }
+.paper .card:hover { box-shadow: 0 30px 50px -30px rgba(60, 45, 20, 0.55); border-color: rgba(40, 34, 25, 0.18); }
+.paper .card::before { background: radial-gradient(260px circle at var(--mx) var(--my), rgba(14, 159, 90, 0.5), transparent 60%); }
+.paper .pill { background: rgba(40, 34, 25, 0.04); }
+.paper .btn-primary { color: #fff; box-shadow: 0 10px 26px -10px rgba(14, 159, 90, 0.7); }
+.paper .btn-primary:hover { background: var(--graphite); color: #fff; }
+
+/* Highlighter-pen underline on key words */
+.marker {
+    position: relative;
+    white-space: nowrap;
+    z-index: 0;
+}
+.marker::after {
+    content: '';
+    position: absolute;
+    left: -0.08em; right: -0.08em; bottom: 0.08em;
+    height: 0.38em;
+    background: #ffe066;
+    border-radius: 0.2em 0.5em 0.3em 0.6em;
+    transform: rotate(-1.2deg) scaleX(0);
+    transform-origin: left center;
+    z-index: -1;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+.in-view .marker::after, h2.in-view .marker::after, .marker.on::after { transform: rotate(-1.2deg) scaleX(1); }
+
+/* =========================================================
+   Hero sketch pad
+   ========================================================= */
+.sketch-hero { background: transparent; cursor: crosshair; }
+.sketch-hero::before {
+    background:
+        radial-gradient(40% 35% at 20% 30%, rgba(255, 224, 102, 0.28), transparent 70%),
+        radial-gradient(35% 30% at 80% 70%, rgba(124, 77, 255, 0.08), transparent 70%);
+}
+
+#sketchCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    touch-action: pan-y;
+}
+#sketchCanvas.armed { touch-action: none; }
+
+.sketch-hero .hero-content { z-index: 2; pointer-events: none; }
+.sketch-hero .hero-content a, .sketch-hero .hero-content button { pointer-events: auto; }
+.sketch-hero .hero-tag { background: rgba(255, 252, 245, 0.8); }
+
+.sketch-title { line-height: 0.9; margin-bottom: 1.5rem; }
+.sketch-title .solid { display: block; }
+
+.drawn-word {
+    display: block;
+    width: min(100%, 880px);
+    margin: 0.15em auto 0;
+    overflow: visible;
+}
+.drawn-word text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 215px;
+    fill: transparent;
+    stroke: var(--graphite);
+    stroke-width: 2.2;
+    stroke-linejoin: round;
+    stroke-dasharray: 2600;
+    stroke-dashoffset: 2600;
+    animation: drawWord 3.4s cubic-bezier(0.45, 0, 0.2, 1) 0.4s forwards, inkIn 1.4s ease 3.4s forwards;
+}
+@keyframes drawWord { to { stroke-dashoffset: 0; } }
+@keyframes inkIn { to { fill: rgba(43, 42, 46, 0.06); } }
+
+.scribble-note {
+    position: absolute;
+    right: -4%;
+    bottom: -3.4rem;
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    color: var(--accent);
+    transform: rotate(-4deg);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 2.8s forwards;
+}
+.scribble-note svg { width: 64px; height: 40px; fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; margin-top: -1.2rem; }
+@keyframes fadeUp { from { opacity: 0; transform: rotate(-4deg) translateY(8px); } to { opacity: 1; transform: rotate(-4deg); } }
+
+/* Margin doodles */
+.doodle {
+    position: absolute;
+    z-index: 0;
+    fill: none;
+    stroke: var(--graphite);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.55;
+    pointer-events: none;
+}
+.doodle path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawWord 2.2s ease forwards; }
+.doodle-pencil { width: 110px; top: 18%; left: 7%; transform: rotate(-8deg); }
+.doodle-pencil path { animation-delay: 1s; }
+.doodle-star { width: 70px; top: 22%; right: 12%; stroke: #e0a800; }
+.doodle-star path { animation-delay: 1.6s; }
+.doodle-swirl { width: 150px; bottom: 22%; left: 10%; stroke: var(--accent-3); }
+.doodle-swirl path { animation-delay: 2.1s; }
+.doodle-shuttle { width: 80px; bottom: 26%; right: 9%; transform: rotate(18deg); }
+.doodle-shuttle path { animation-delay: 2.5s; }
+
+/* Toolbar */
+.sketch-toolbar {
+    position: absolute;
+    left: 50%;
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem;
+    border-radius: 100px;
+    background: rgba(24, 23, 22, 0.92);
+    box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.5);
+    max-width: calc(100% - 2rem);
+    overflow-x: auto;
+}
+
+.sketch-toolbar button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex: none;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #c9c4ba;
+    background: transparent;
+    border: none;
+    border-radius: 100px;
+    padding: 0.55rem 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.sketch-toolbar button:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.sketch-toolbar .tool.active { color: #1d1b18; background: #f1ebdf; }
+
+.swatch { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.swatch.graphite { background: #6b6a70; }
+.swatch.charcoal { background: #111; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25); }
+.swatch.eraser { background: #f4b6c2; border-radius: 3px; }
+.tool-sep { width: 1px; height: 20px; background: rgba(255, 255, 255, 0.15); margin: 0 0.2rem; flex: none; }
+
+/* =========================================================
+   01 · Taped sheets
+   ========================================================= */
+.sheets { gap: 2rem; padding-top: 0.75rem; }
+.sheet { overflow: visible; background: #fffdf8; }
+.sheet::after {
+    content: '';
+    position: absolute;
+    top: -14px; left: 50%;
+    width: 96px; height: 28px;
+    margin-left: -48px;
+    background: rgba(236, 216, 160, 0.75);
+    border-left: 1px dashed rgba(0, 0, 0, 0.08);
+    border-right: 1px dashed rgba(0, 0, 0, 0.08);
+    transform: rotate(-3deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+.sheet.tilt-l  { transform: rotate(-1.6deg); }
+.sheet.tilt-r  { transform: rotate(1.4deg) translateY(10px); }
+.sheet.tilt-l2 { transform: rotate(-0.8deg); }
+.sheet.tilt-r::after { transform: rotate(4deg); background: rgba(183, 224, 200, 0.75); }
+.sheet.tilt-l2::after { transform: rotate(-6deg); background: rgba(244, 182, 194, 0.7); }
+.sheets .sheet.reveal.in-view.tilt-l  { transform: rotate(-1.6deg); }
+.sheets .sheet.reveal.in-view.tilt-r  { transform: rotate(1.4deg) translateY(10px); }
+.sheets .sheet.reveal.in-view.tilt-l2 { transform: rotate(-0.8deg); }
+.sheets .sheet:hover, .sheets .sheet.reveal.in-view:hover { transform: rotate(0deg) translateY(-8px) scale(1.02); }
+
+.stamp {
+    display: grid;
+    place-items: center;
+    width: 64px; height: 64px;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    border: 2px dashed rgba(40, 34, 25, 0.25);
+    margin-bottom: 1.4rem;
+    transform: rotate(-8deg);
+}
+
+/* =========================================================
+   02 · Anatomy of a sketch
+   ========================================================= */
+.anatomy {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.anatomy-steps { display: grid; gap: 0.6rem; }
+
+.a-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.15rem 1rem;
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    border: 1px solid var(--card-border);
+    background: rgba(255, 253, 248, 0.6);
+    cursor: pointer;
+    font-family: var(--font-body);
+    color: var(--text-gray);
+    transition: border-color 0.3s, background 0.3s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.a-step span { grid-row: span 2; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); padding-top: 0.2rem; }
+.a-step strong { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-white); }
+.a-step em { font-style: normal; font-size: 0.86rem; }
+.a-step:hover { border-color: rgba(40, 34, 25, 0.25); }
+.a-step.active { background: #fffdf8; border-color: var(--accent-line); transform: translateX(6px); box-shadow: -4px 0 0 var(--accent); }
+.a-step.done span { color: var(--accent); }
+
+.a-replay {
+    justify-self: start;
+    margin-top: 0.4rem;
+    font-family: var(--font-hand);
+    font-size: 1.35rem;
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem 0;
+}
+
+.anatomy-paper {
+    position: relative;
+    background: #fffdf8;
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 2rem 2rem 1.25rem;
+    box-shadow: 0 30px 60px -36px rgba(60, 45, 20, 0.6), 6px 6px 0 -1px #f6efe0, 6px 6px 0 0 rgba(40, 34, 25, 0.1);
+    transform: rotate(0.6deg);
+}
+
+#anatomySvg { width: 100%; height: auto; display: block; max-height: 520px; }
+
+#anatomySvg .ln {
+    fill: none;
+    stroke: #3b3a3e;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.6s cubic-bezier(0.45, 0, 0.2, 1), opacity 0.6s;
+}
+#anatomySvg .ln.light { stroke: #a39c90; stroke-width: 1.2; }
+#anatomySvg .ln.thin { stroke-width: 1; stroke: #6a665f; }
+#anatomySvg .ln.dark { stroke: #1d1b18; stroke-width: 2.2; }
+#anatomySvg .tone path, #anatomySvg .shadow { opacity: 0; transition: opacity 1.4s ease; }
+
+#anatomySvg .stage.on .ln { stroke-dashoffset: 0; }
+#anatomySvg .stage.on .tone path, #anatomySvg .stage.on.tone path, #anatomySvg .stage.on .shadow { opacity: 1; }
+/* Gesture lines fade back once structure takes over */
+#anatomySvg.past-1 .stage[data-stage="1"] .ln { opacity: 0.45; }
+
+.paper-caption {
+    margin-top: 0.75rem;
+    font-family: var(--font-hand);
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* =========================================================
+   03 · Rally game
+   ========================================================= */
+.rally { padding: 0; overflow: hidden; background: #fffdf8; }
+.rally:hover { transform: none; }
+
+.rally-hud {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px dashed var(--card-border);
+}
+.rally-hud span { display: block; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.rally-hud strong { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-white); line-height: 1.1; }
+.rally-msg { margin-left: auto; font-family: var(--font-hand); font-size: 1.4rem; color: var(--accent); text-align: right; }
+
+#rallyCanvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* =========================================================
+   04 · Commission path
+   ========================================================= */
+.commission-path {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+/* dashed hand-drawn route linking the steps */
+.commission-path::before {
+    content: '';
+    position: absolute;
+    top: 30px; left: 6%; right: 6%;
+    border-top: 2.5px dashed rgba(40, 34, 25, 0.25);
+    border-radius: 50%;
+}
+
+.c-step { position: relative; text-align: center; padding: 0 0.5rem; }
+.c-num {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 60px; height: 60px;
+    margin: 0 auto 1.1rem;
+    font-family: var(--font-hand);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-white);
+    background: #fffdf8;
+    border: 2.5px solid var(--graphite);
+    border-radius: 52% 48% 55% 45% / 48% 55% 45% 52%;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s;
+}
+.c-step:nth-child(2) .c-num { border-radius: 45% 55% 48% 52% / 55% 45% 52% 48%; }
+.c-step:nth-child(3) .c-num { border-radius: 55% 45% 52% 48% / 45% 52% 48% 55%; }
+.c-step:hover .c-num { transform: rotate(-8deg) scale(1.08); background: #ffe066; }
+.c-step h3 { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.35rem; }
+.c-step p { color: var(--text-gray); font-size: 0.9rem; }
+
+.commission-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: 3.5rem;
+}
+.hand-note { font-family: var(--font-hand); font-size: 1.5rem; color: var(--text-gray); transform: rotate(-3deg); }
+
+/* =========================================================
+   05 · Sticky notes
+   ========================================================= */
+.notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.25rem;
+    padding: 0.5rem 0;
+}
+
+.note {
+    position: relative;
+    padding: 2rem 1.75rem 2.25rem;
+    color: #2c2a26;
+    box-shadow: 0 22px 30px -22px rgba(60, 45, 20, 0.55), inset 0 -18px 30px -24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.note::before {
+    content: '';
+    position: absolute;
+    top: -10px; left: 50%;
+    width: 18px; height: 18px;
+    margin-left: -9px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ff8a8a, #c62828);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+}
+.note-yellow { background: #fff3a8; transform: rotate(-2.5deg); }
+.note-pink   { background: #ffd6e0; transform: rotate(1.8deg) translateY(14px); }
+.note-mint   { background: #c9f5df; transform: rotate(-1deg); }
+.note.reveal.in-view.note-yellow { transform: rotate(-2.5deg); }
+.note.reveal.in-view.note-pink   { transform: rotate(1.8deg) translateY(14px); }
+.note.reveal.in-view.note-mint   { transform: rotate(-1deg); }
+.notes .note:hover, .notes .note.reveal.in-view:hover { transform: rotate(0deg) scale(1.04); }
+
+.note .philosophy-num { font-family: var(--font-mono); font-size: 0.7rem; color: rgba(44, 42, 38, 0.55); margin-bottom: 0.5rem; }
+.note h3 { font-family: var(--font-hand); font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.5rem; }
+.note p { font-family: var(--font-hand); font-size: 1.35rem; line-height: 1.35; color: #3a3732; }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 900px) {
+    .anatomy { grid-template-columns: 1fr; }
+    .anatomy-paper { order: -1; }
+    .commission-path { grid-template-columns: 1fr 1fr; row-gap: 2.5rem; }
+    .commission-path::before { display: none; }
+}
+
+@media (max-width: 600px) {
+    .doodle-pencil, .doodle-swirl { display: none; }
+    .doodle-star { top: 14%; right: 6%; }
+    .doodle-shuttle { bottom: 18%; right: 4%; width: 56px; }
+    .scribble-note { position: static; justify-content: center; margin-top: 1rem; font-size: 1.3rem; }
+    .scribble-note svg { display: none; }
+    .sketch-toolbar button { padding: 0.55rem 0.7rem; font-size: 0.78rem; }
+    .sketch-toolbar .tool .t { display: none; }
+    .sketch-toolbar .swatch { width: 16px; height: 16px; }
+    .rally-hud { gap: 1.25rem; padding: 0.85rem 1rem; }
+    .rally-msg { font-size: 1.15rem; }
+    #rallyCanvas { aspect-ratio: 4 / 3; }
+    .anatomy-paper { padding: 1.25rem 1rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .drawn-word text { stroke-dashoffset: 0; fill: rgba(43, 42, 46, 0.06); }
+    .doodle path { stroke-dashoffset: 0; }
+    .scribble-note { opacity: 1; }
+    .marker::after { transform: rotate(-1.2deg) scaleX(1); }
+}

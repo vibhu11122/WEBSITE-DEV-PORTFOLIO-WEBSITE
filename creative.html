@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creative Pursuits | Vishal Trivedi</title>
+    <meta name="description" content="The sketchbook of Vishal Trivedi — graphite and charcoal art, commissioned artwork, and badminton. Draw on the page, watch a sketch come together, and play a rally.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;family=Syne:wght@500;600;700;800&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&amp;family=Inter:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;family=Syne:wght@500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="creative.css">
 </head>
-<body>
+<body class="paper">
     <div class="scroll-progress"></div>
 
     <nav id="navbar">
@@ -24,145 +26,72 @@
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
 
-    <header class="hero hero-creative">
-      
-       <svg class="bg-svg" viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-   <!-- here i used a bit of online resources to add translucent images in the background  -->
-    <g transform="translate(80,120) rotate(-35)" opacity="0.35">
-        <rect x="-6" y="-80" width="12" height="120" fill="#c8d0dc" rx="2"/>
-        <polygon points="-6,40 6,40 0,70" fill="#f0c060"/>
-        <rect x="-6" y="-90" width="12" height="12" fill="#d8d8d8"/>
-        <rect x="-6" y="-98" width="12" height="10" fill="#e07060"/>
-    </g>
-    
-    <g transform="translate(1300,200) rotate(25)" opacity="0.30">
-        <rect x="-5" y="-70" width="10" height="100" fill="#c8d0dc" rx="2"/>
-        <polygon points="-5,30 5,30 0,55" fill="#f0c060"/>
-        <rect x="-5" y="-79" width="10" height="11" fill="#d8d8d8"/>
-        <rect x="-5" y="-87" width="10" height="9" fill="#2ecc71"/>
-    </g>
-    
-    <g transform="translate(400,620) rotate(60)" opacity="0.28">
-        <rect x="-7" y="-90" width="14" height="130" fill="#c8d0dc" rx="2"/>
-        <polygon points="-7,40 7,40 0,75" fill="#f0d080"/>
-        <rect x="-7" y="-102" width="14" height="14" fill="#d8d8d8"/>
-        <rect x="-7" y="-112" width="14" height="11" fill="#e07060"/>
-    </g>
-    
-    <g transform="translate(1100,580) rotate(-20)" opacity="0.28">
-        <rect x="-5" y="-70" width="10" height="100" fill="#c8d0dc" rx="2"/>
-        <polygon points="-5,30 5,30 0,55" fill="#f0c060"/>
-        <rect x="-5" y="-79" width="10" height="11" fill="#d8d8d8"/>
-        <rect x="-5" y="-87" width="10" height="9" fill="#2ecc71"/>
-    </g>
+    <!-- Hero: the whole header is a sketch pad -->
+    <header class="hero sketch-hero" id="top">
+        <canvas id="sketchCanvas" aria-label="Drawing area — sketch with your mouse or finger"></canvas>
 
-   
-    <g transform="translate(1200,100) rotate(40)" opacity="0.32">
-        <rect x="-5" y="-100" width="10" height="165" fill="#9B7820" rx="3"/>
-        <ellipse cx="0" cy="-108" rx="12" ry="26" fill="#00ff41" opacity="0.85"/>
-        <rect x="-3" y="65" width="6" height="22" fill="#c8c8c8"/>
-    </g>
-    
-    <g transform="translate(200,500) rotate(-50)" opacity="0.28">
-        <rect x="-4" y="-90" width="8" height="145" fill="#9B7820" rx="2"/>
-        <ellipse cx="0" cy="-98" rx="10" ry="21" fill="#2ecc71" opacity="0.75"/>
-        <rect x="-2" y="55" width="4" height="16" fill="#c8c8c8"/>
-    </g>
-    
-    <g transform="translate(700,55) rotate(10)" opacity="0.26">
-        <rect x="-5" y="-115" width="10" height="178" fill="#7B5A0E" rx="3"/>
-        <ellipse cx="0" cy="-123" rx="13" ry="28" fill="#00ff41" opacity="0.65"/>
-        <rect x="-3" y="63" width="6" height="20" fill="#aaa"/>
-    </g>
-
-  
-    <g transform="translate(950,550) rotate(-15)" opacity="0.32">
-        <ellipse cx="0" cy="0" rx="13" ry="15" fill="#e8d5a0"/>
-        <line x1="0" y1="-15" x2="-20" y2="-65" stroke="#c8d0dc" stroke-width="2"/>
-        <line x1="0" y1="-15" x2="-11" y2="-70" stroke="#c8d0dc" stroke-width="2"/>
-        <line x1="0" y1="-15" x2="0" y2="-73" stroke="#c8d0dc" stroke-width="2"/>
-        <line x1="0" y1="-15" x2="11" y2="-70" stroke="#c8d0dc" stroke-width="2"/>
-        <line x1="0" y1="-15" x2="20" y2="-65" stroke="#c8d0dc" stroke-width="2"/>
-        <ellipse cx="0" cy="-60" rx="22" ry="4" fill="none" stroke="#c8d0dc" stroke-width="1.5"/>
-    </g>
-
- 
-    <g transform="translate(180,200) rotate(30)" opacity="0.28">
-        <rect x="-6" y="42" width="12" height="85" fill="#8B4513" rx="5"/>
-        <ellipse cx="0" cy="0" rx="38" ry="48" fill="none" stroke="#c8d0dc" stroke-width="3.5"/>
-        <!-- strings -->
-        <line x1="-36" y1="-22" x2="36" y2="-22" stroke="#c8d0dc" stroke-width="1.2" opacity="0.7"/>
-        <line x1="-38" y1="0"   x2="38" y2="0"   stroke="#c8d0dc" stroke-width="1.2" opacity="0.7"/>
-        <line x1="-36" y1="22"  x2="36" y2="22"  stroke="#c8d0dc" stroke-width="1.2" opacity="0.7"/>
-        <line x1="-22" y1="-46" x2="-22" y2="46" stroke="#c8d0dc" stroke-width="1.2" opacity="0.7"/>
-        <line x1="0"   y1="-48" x2="0"   y2="48" stroke="#c8d0dc" stroke-width="1.2" opacity="0.7"/>
-        <line x1="22"  y1="-46" x2="22"  y2="46" stroke="#c8d0dc" stroke-width="1.2" opacity="0.7"/>
-    </g>
-  
-    <g transform="translate(1250,420) rotate(-25)" opacity="0.26">
-        <rect x="-5" y="37" width="10" height="68" fill="#8B4513" rx="4"/>
-        <ellipse cx="0" cy="0" rx="30" ry="39" fill="none" stroke="#c8d0dc" stroke-width="3"/>
-        <line x1="-28" y1="-16" x2="28" y2="-16" stroke="#c8d0dc" stroke-width="1" opacity="0.65"/>
-        <line x1="-30" y1="0"   x2="30" y2="0"   stroke="#c8d0dc" stroke-width="1" opacity="0.65"/>
-        <line x1="-28" y1="16"  x2="28" y2="16"  stroke="#c8d0dc" stroke-width="1" opacity="0.65"/>
-        <line x1="-18" y1="-37" x2="-18" y2="37" stroke="#c8d0dc" stroke-width="1" opacity="0.65"/>
-        <line x1="0"   y1="-39" x2="0"   y2="39" stroke="#c8d0dc" stroke-width="1" opacity="0.65"/>
-        <line x1="18"  y1="-37" x2="18"  y2="37" stroke="#c8d0dc" stroke-width="1" opacity="0.65"/>
-    </g>
-
-    
-    <g transform="translate(600,630) rotate(-10)" opacity="0.30">
-        <rect x="-5" y="-55" width="10" height="110" fill="#4a4a4a" rx="4"/>
-        <rect x="-5" y="-55" width="10" height="7" fill="#222" rx="3"/>
-    </g>
-    
-    <g transform="translate(850,75) rotate(70)" opacity="0.26">
-        <rect x="-4" y="-42" width="8" height="84" fill="#3a3a3a" rx="3"/>
-    </g>
-
-  
-    <g transform="translate(1350,555) rotate(10)" opacity="0.26">
-        <path d="M0,-42 Q42,-53 63,-21 Q83,11 63,42 Q42,63 10,52 Q-11,47 -21,21 Q-32,-5 0,-42 Z" fill="#888" opacity="0.5"/>
-        <circle cx="10"  cy="-22" r="8" fill="#00ff41" opacity="0.9"/>
-        <circle cx="40"  cy="-11" r="8" fill="#2ecc71" opacity="0.9"/>
-        <circle cx="47"  cy="21"  r="7" fill="#aaa"    opacity="0.9"/>
-        <circle cx="21"  cy="37"  r="7" fill="#777"    opacity="0.9"/>
-        <circle cx="-5"  cy="27"  r="7" fill="#555"    opacity="0.9"/>
-        <ellipse cx="20" cy="10" rx="13" ry="9" fill="#0a0a0a" opacity="0.6"/>
-    </g>
-</svg>
+        <!-- Doodles that draw themselves in the margins -->
+        <svg class="doodle doodle-pencil" viewBox="0 0 120 120" aria-hidden="true">
+            <path pathLength="1" d="M20 100 L90 30 L104 44 L34 114 Z M20 100 L14 118 L34 114 M84 36 L98 50"/>
+        </svg>
+        <svg class="doodle doodle-star" viewBox="0 0 100 100" aria-hidden="true">
+            <path pathLength="1" d="M50 8 L61 38 L93 39 L67 58 L77 90 L50 71 L23 90 L33 58 L7 39 L39 38 Z"/>
+        </svg>
+        <svg class="doodle doodle-swirl" viewBox="0 0 160 80" aria-hidden="true">
+            <path pathLength="1" d="M6 60 C30 6, 60 6, 62 40 C64 70, 30 66, 40 40 C52 12, 110 6, 154 30"/>
+        </svg>
+        <svg class="doodle doodle-shuttle" viewBox="0 0 100 120" aria-hidden="true">
+            <path pathLength="1" d="M38 92 a12 12 0 0 0 24 0 Z M38 92 L18 18 M62 92 L82 18 M44 92 L36 16 M56 92 L64 16 M50 92 L50 14 M18 18 Q50 6 82 18"/>
+        </svg>
 
         <div class="hero-content">
             <div class="hero-tag">Art · Sport · Expression</div>
-            <h1>Creative<br><span class="outline-text">Pursuits</span></h1>
-            <p>Where discipline meets creativity, on canvas and on court.</p>
+            <h1 class="sketch-title">
+                <span class="solid">Creative</span>
+                <span class="sr-only">Pursuits</span>
+                <svg class="drawn-word" viewBox="0 0 1000 240" aria-hidden="true">
+                    <text x="500" y="190" text-anchor="middle" textLength="940" lengthAdjust="spacingAndGlyphs">Pursuits</text>
+                </svg>
+            </h1>
+            <p>Where discipline meets creativity — on paper and on court.</p>
+            <div class="scribble-note"><svg viewBox="0 0 80 50" aria-hidden="true"><path d="M74 8 C50 4, 18 14, 10 40 M10 40 L4 28 M10 40 L22 34"/></svg>go on, draw on this page</div>
+        </div>
+
+        <div class="sketch-toolbar" role="toolbar" aria-label="Drawing tools">
+            <button class="tool active" data-tool="graphite" title="Graphite pencil" aria-label="Graphite pencil"><span class="swatch graphite"></span><span class="t">Graphite</span></button>
+            <button class="tool" data-tool="charcoal" title="Charcoal" aria-label="Charcoal"><span class="swatch charcoal"></span><span class="t">Charcoal</span></button>
+            <button class="tool" data-tool="eraser" title="Eraser" aria-label="Eraser"><span class="swatch eraser"></span><span class="t">Eraser</span></button>
+            <span class="tool-sep"></span>
+            <button class="tool-action" id="sketchClear" title="Clear the page">Clear</button>
+            <button class="tool-action" id="sketchSave" title="Save your drawing">Save ↓</button>
         </div>
     </header>
 
+    <!-- 01 · Activities as taped sketchbook sheets -->
     <section class="section">
         <div class="section-label">01 / Activities</div>
-        <h2>Off-Screen Activities</h2>
-        <div class="card-container creative-cards">
-            <div class="card art-card">
-                <div class="card-icon-big">✏️</div>
-                <h3>Graphite & Charcoal Sketching</h3>
+        <h2>Off-Screen <span class="marker">Activities</span></h2>
+        <div class="card-container sheets">
+            <div class="card sheet tilt-l">
+                <div class="stamp">✏️</div>
+                <h3>Graphite &amp; Charcoal Sketching</h3>
                 <p class="subtitle">Fine Arts</p>
                 <p>Specializing in detailed, high-fidelity sketches. I focus heavily on capturing complex textures and translating intricate references onto the canvas.</p>
                 <div class="card-pills">
                     <span class="pill">Portraiture</span><span class="pill">Texture</span><span class="pill">Realism</span>
                 </div>
             </div>
-            <div class="card art-card featured-card">
-                <div class="card-icon-big">🖼️</div>
+            <div class="card sheet tilt-r featured-card">
+                <div class="stamp">🖼️</div>
                 <h3>Commissioned Artwork Venture</h3>
-                <p class="subtitle">Art & Business Combined</p>
+                <p class="subtitle">Art &amp; Business Combined</p>
                 <p>Successfully executed a local micro-venture, converting a small budget into revenue by providing dedicated sketching services to the community.</p>
                 <div class="card-pills">
                     <span class="pill">Commissions</span><span class="pill">Entrepreneurship</span><span class="pill">Community</span>
                 </div>
             </div>
-            <div class="card art-card">
-                <div class="card-icon-big">🏸</div>
+            <div class="card sheet tilt-l2">
+                <div class="stamp">🏸</div>
                 <h3>Badminton</h3>
                 <p class="subtitle">Athletics</p>
                 <p>Maintaining agility, focus, and competitive spirit on the court. It serves as a perfect physical counterbalance to screen-heavy development work.</p>
@@ -173,21 +102,146 @@
         </div>
     </section>
 
-    <section class="section section-alt">
-        <div class="section-label">02 / Philosophy</div>
-        <h2>Why Creativity Matters</h2>
-        <div class="philosophy-grid">
-            <div class="philosophy-item">
+    <!-- 02 · Anatomy of a sketch: an illustration that builds in four stages -->
+    <section id="anatomy" class="section section-alt">
+        <div class="section-label">02 / Process</div>
+        <h2>Anatomy of a <span class="marker">Sketch</span></h2>
+        <p class="section-intro">Every drawing is built in layers. Step through how a graphite study of a shuttlecock comes together — the same layering I use in every piece.</p>
+
+        <div class="anatomy">
+            <div class="anatomy-steps" role="tablist">
+                <button class="a-step active" data-stage="1"><span>01</span><strong>Gesture</strong><em>Loose lines that catch the movement and proportion.</em></button>
+                <button class="a-step" data-stage="2"><span>02</span><strong>Structure</strong><em>Ellipses and construction lines lock in the form.</em></button>
+                <button class="a-step" data-stage="3"><span>03</span><strong>Tone</strong><em>Hatching builds light, shadow and volume.</em></button>
+                <button class="a-step" data-stage="4"><span>04</span><strong>Detail</strong><em>Feather edges, texture and a grounding shadow.</em></button>
+                <button class="a-replay" id="anatomyReplay">↻ Replay from start</button>
+            </div>
+
+            <div class="anatomy-paper">
+                <svg id="anatomySvg" viewBox="0 0 400 470" role="img" aria-label="A shuttlecock drawing built up in stages">
+                    <defs>
+                        <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+                            <line x1="0" y1="0" x2="0" y2="7" stroke="#2b2b2f" stroke-width="1.1" opacity="0.55"/>
+                        </pattern>
+                        <pattern id="crosshatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+                            <line x1="0" y1="0" x2="0" y2="7" stroke="#2b2b2f" stroke-width="1" opacity="0.5"/>
+                            <line x1="0" y1="3.5" x2="7" y2="3.5" stroke="#2b2b2f" stroke-width="0.8" opacity="0.35"/>
+                        </pattern>
+                    </defs>
+
+                    <!-- 1 · Gesture -->
+                    <g class="stage" data-stage="1">
+                        <path class="ln light" pathLength="1" d="M88 82 C120 170, 140 270, 162 352"/>
+                        <path class="ln light" pathLength="1" d="M312 82 C282 170, 262 270, 238 352"/>
+                        <path class="ln light" pathLength="1" d="M84 84 C140 52, 262 54, 316 84 C262 110, 140 112, 84 84"/>
+                        <path class="ln light" pathLength="1" d="M150 352 C146 412, 254 412, 250 352"/>
+                        <path class="ln light" pathLength="1" d="M200 30 L200 440"/>
+                    </g>
+
+                    <!-- 2 · Structure -->
+                    <g class="stage" data-stage="2">
+                        <ellipse class="ln" pathLength="1" cx="200" cy="84" rx="114" ry="26"/>
+                        <ellipse class="ln" pathLength="1" cx="200" cy="344" rx="47" ry="10"/>
+                        <path class="ln" pathLength="1" d="M153 344 L153 370 A47 47 0 0 0 247 370 L247 344"/>
+                        <path class="ln" pathLength="1" d="M86 86 L155 346"/>
+                        <path class="ln" pathLength="1" d="M314 86 L245 346"/>
+                        <path class="ln thin" pathLength="1" d="M124 104 L170 352"/>
+                        <path class="ln thin" pathLength="1" d="M162 109 L186 354"/>
+                        <path class="ln thin" pathLength="1" d="M200 110 L200 354"/>
+                        <path class="ln thin" pathLength="1" d="M238 109 L214 354"/>
+                        <path class="ln thin" pathLength="1" d="M276 104 L230 352"/>
+                        <ellipse class="ln thin" pathLength="1" cx="200" cy="262" rx="70" ry="13"/>
+                        <ellipse class="ln thin" pathLength="1" cx="200" cy="300" rx="59" ry="11"/>
+                    </g>
+
+                    <!-- 3 · Tone -->
+                    <g class="stage tone" data-stage="3">
+                        <path fill="url(#hatch)" d="M245 346 L314 86 C300 96, 282 102, 262 106 L224 352 Z"/>
+                        <path fill="url(#crosshatch)" d="M215 350 L247 344 L247 370 A47 47 0 0 1 210 414 C230 396, 222 372, 215 350 Z"/>
+                        <path fill="url(#hatch)" opacity="0.6" d="M153 352 L247 352 L247 360 L153 360 Z"/>
+                        <path fill="url(#hatch)" opacity="0.5" d="M130 262 C170 278, 232 278, 270 262 L266 272 C230 288, 170 288, 134 272 Z"/>
+                    </g>
+
+                    <!-- 4 · Detail -->
+                    <g class="stage" data-stage="4">
+                        <path class="ln dark" pathLength="1" d="M86 86 q8 -20 20 -6 q6 -22 22 -8 q8 -20 22 -6 q6 -22 22 -8 q10 -18 24 -4 q12 -18 24 4 q14 -16 22 8 q16 -12 22 6 q16 -8 20 6 q16 -6 18 10"/>
+                        <path class="ln dark" pathLength="1" d="M86 86 L155 346 M314 86 L245 346"/>
+                        <path class="ln dark" pathLength="1" d="M153 344 L153 370 A47 47 0 0 0 247 370 L247 344"/>
+                        <ellipse class="ln dark" pathLength="1" cx="200" cy="344" rx="47" ry="10"/>
+                        <path class="ln dark" pathLength="1" d="M130 262 C170 278, 232 278, 270 262 M141 300 C172 314, 228 314, 259 300"/>
+                        <path class="ln" pathLength="1" d="M170 380 l2 2 M190 392 l2 2 M210 386 l2 2 M228 376 l2 2 M182 404 l2 2 M204 404 l2 2"/>
+                        <ellipse fill="url(#crosshatch)" class="shadow" cx="214" cy="440" rx="96" ry="12"/>
+                    </g>
+                </svg>
+                <div class="paper-caption">fig. 01 — shuttlecock study, graphite <span id="stageLabel">· stage 1 of 4</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 · Badminton mini-game -->
+    <section id="court" class="section">
+        <div class="section-label">03 / On Court</div>
+        <h2>Keep the <span class="marker">Rally</span> Going</h2>
+        <p class="section-intro">Badminton keeps my reflexes sharp. Tap or click the shuttle to hit it back over the net — how long can you keep it in the air?</p>
+
+        <div class="rally card">
+            <div class="rally-hud">
+                <div><span>Rally</span><strong id="rallyCount">0</strong></div>
+                <div><span>Best</span><strong id="rallyBest">0</strong></div>
+                <div class="rally-msg" id="rallyMsg">Tap the shuttle to serve</div>
+            </div>
+            <canvas id="rallyCanvas" aria-label="Badminton rally game"></canvas>
+        </div>
+    </section>
+
+    <!-- 04 · Commissions -->
+    <section id="commissions" class="section section-alt">
+        <div class="section-label">04 / Commissions</div>
+        <h2>How a <span class="marker">Commission</span> Works</h2>
+        <div class="commission-path">
+            <div class="c-step">
+                <div class="c-num">1</div>
+                <h3>Brief</h3>
+                <p>Share the subject, size and style you have in mind.</p>
+            </div>
+            <div class="c-step">
+                <div class="c-num">2</div>
+                <h3>Reference</h3>
+                <p>Send a photo, and we agree on the composition and timeline.</p>
+            </div>
+            <div class="c-step">
+                <div class="c-num">3</div>
+                <h3>Sketch</h3>
+                <p>Graphite and charcoal, built up layer by layer.</p>
+            </div>
+            <div class="c-step">
+                <div class="c-num">4</div>
+                <h3>Deliver</h3>
+                <p>The finished piece, ready to frame.</p>
+            </div>
+        </div>
+        <div class="commission-cta">
+            <a href="index.html#contact" class="btn-primary">Commission a Sketch →</a>
+            <span class="hand-note">← portraits, pets, places…</span>
+        </div>
+    </section>
+
+    <!-- 05 · Philosophy as sticky notes -->
+    <section class="section">
+        <div class="section-label">05 / Philosophy</div>
+        <h2>Why Creativity <span class="marker">Matters</span></h2>
+        <div class="notes">
+            <div class="note note-yellow">
                 <div class="philosophy-num">01</div>
                 <h3>Design Thinking</h3>
                 <p>Art trains the eye for detail — the same precision I bring to UI design and data visualization.</p>
             </div>
-            <div class="philosophy-item">
+            <div class="note note-pink">
                 <div class="philosophy-num">02</div>
                 <h3>Mental Balance</h3>
                 <p>Badminton provides a physical counterweight to hours of code — sharper mind, faster reflexes.</p>
             </div>
-            <div class="philosophy-item">
+            <div class="note note-mint">
                 <div class="philosophy-num">03</div>
                 <h3>Entrepreneurial Art</h3>
                 <p>Turning passion into profit early — commissioned artwork taught me pricing, delivery, and client relations.</p>
@@ -209,5 +263,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="creative.js"></script>
 </body>
 </html>
