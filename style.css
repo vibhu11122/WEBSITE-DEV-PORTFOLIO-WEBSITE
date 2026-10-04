@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Syne:wght@500;600;700;800&display=swap');
+/* Fonts are loaded with <link> tags in each page's <head> so they don't block this stylesheet */
 
 /* =========================================================
    Design tokens
@@ -254,7 +254,7 @@ body::after {
 }
 
 .hero-content > * {
-    animation: heroFadeIn 1s var(--ease) both;
+    animation: heroFadeIn 0.8s var(--ease) both;
 }
 .hero-content > *:nth-child(2) { animation-delay: 0.1s; }
 .hero-content > *:nth-child(3) { animation-delay: 0.2s; }
@@ -262,8 +262,8 @@ body::after {
 .hero-content > *:nth-child(5) { animation-delay: 0.4s; }
 
 @keyframes heroFadeIn {
-    from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
-    to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-tag {

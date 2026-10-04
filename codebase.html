@@ -7,6 +7,7 @@
     <meta name="description" content="Projects and tech stack of Vishal Trivedi — Python, data science and machine learning with scikit-learn, TensorFlow, Keras and PyTorch.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;family=Syne:wght@500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -200,54 +201,66 @@
 
     <script src="script.js"></script>
     <script>
-        // Code-rain hero, seeded with Python / ML keywords
+        // Code-rain hero, seeded with Python / ML characters
         const canvas = document.getElementById('codeCanvas');
         const ctx = canvas.getContext('2d');
-        const fontSize = 15;
+        const fontSize = 16;
+        const colWidth = 18;
         const chars = "01{}[]()=>λ∑∂∇∈αβγσθ01fitpredictnumpypandassklearntensorflowkeras".split('');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         let drops = [];
+        let w = 0, h = 0;
 
+        // Size the canvas from its laid-out box. A ResizeObserver (not just window
+        // 'resize') means it corrects itself even if the script runs before CSS loads.
         function resize() {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-            const cols = Math.floor(canvas.width / (fontSize * 1.2));
-            // Start columns spread down the screen so the rain is visible immediately
-            drops = Array.from({ length: cols }, (_, i) => drops[i] ?? Math.random() * (canvas.height / fontSize) - 10);
+            const rect = canvas.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = rect.width; h = rect.height;
+            canvas.width = Math.round(w * dpr);
+            canvas.height = Math.round(h * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const rows = Math.ceil(h / fontSize);
+            const cols = Math.ceil(w / colWidth);
+            // Columns start spread across the screen so the rain is visible immediately
+            drops = Array.from({ length: cols }, () => Math.floor(Math.random() * rows));
         }
+        new ResizeObserver(resize).observe(canvas);
         resize();
-        window.addEventListener('resize', resize);
 
-        function drawRain() {
-            ctx.fillStyle = 'rgba(7, 9, 10, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        function step() {
+            if (!w) return;
+            ctx.fillStyle = 'rgba(7, 9, 10, 0.07)';   // fade previous frames into trails
+            ctx.fillRect(0, 0, w, h);
             ctx.font = `${fontSize}px 'Space Mono', monospace`;
+            ctx.textBaseline = 'top';
 
-            drops.forEach((y, i) => {
-                const char = chars[Math.floor(Math.random() * chars.length)];
-                const x = i * fontSize * 1.2;
-                const screenY = y * fontSize;
+            for (let i = 0; i < drops.length; i++) {
+                const x = i * colWidth;
+                const y = drops[i] * fontSize;
+                const char = chars[(Math.random() * chars.length) | 0];
 
-                if (Math.random() > 0.975) {
-                    ctx.fillStyle = '#eafff3';
-                    ctx.shadowColor = '#3dff9a';
-                    ctx.shadowBlur = 10;
-                } else {
-                    ctx.fillStyle = Math.random() > 0.85
-                        ? `rgba(179, 136, 255, ${Math.random() * 0.5 + 0.3})`
-                        : `rgba(61, 255, 154, ${Math.random() * 0.5 + 0.3})`;
-                    ctx.shadowBlur = 0;
-                }
-                ctx.fillText(char, x, screenY);
+                // Repaint the previous cell in the trail colour, then draw a bright head
+                ctx.fillStyle = Math.random() > 0.88 ? 'rgba(179, 136, 255, 0.85)' : 'rgba(61, 255, 154, 0.85)';
+                ctx.fillText(chars[(Math.random() * chars.length) | 0], x, y - fontSize);
+                ctx.fillStyle = '#e8fff2';
+                ctx.fillText(char, x, y);
 
-                if (screenY > canvas.height && Math.random() > 0.975) {
-                    drops[i] = -Math.floor(Math.random() * 20);
-                }
-                drops[i] += 0.5;
-            });
-            ctx.shadowBlur = 0;
+                if (y > h && Math.random() > 0.96) drops[i] = 0;
+                drops[i]++;
+            }
         }
 
-        setInterval(drawRain, 40);
+        // ~18 steps per second, paused while the hero is off-screen
+        let visible = true, last = 0;
+        new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(canvas);
+        function loop(t) {
+            if (visible && t - last > 55) { step(); last = t; }
+            requestAnimationFrame(loop);
+        }
+        if (reduceMotion) { for (let i = 0; i < 40; i++) step(); }
+        else requestAnimationFrame(loop);
     </script>
 </body>
 </html>
