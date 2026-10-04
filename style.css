@@ -214,7 +214,7 @@ body::after {
     100% { transform: translate3d(-3%, 2%, 0) rotate(-3deg); }
 }
 
-#particleCanvas, #codeCanvas {
+#particleCanvas, #codeCanvas, #marketCanvas {
     position: absolute;
     inset: 0;
     /* canvas is a replaced element: inset alone won't stretch it past 300x150 */
@@ -551,6 +551,8 @@ body::after {
 }
 
 .tech-stack-section .section-intro { margin-left: auto; margin-right: auto; }
+/* In full-width sections, line the intro up with the 1200px content column */
+.section-alt:not(.tech-stack-section) > .section-intro { margin-left: max(0px, calc((100% - 1200px) / 2)); }
 
 /* =========================================================
    Cards
@@ -1133,7 +1135,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 
 .metric-item {
     text-align: center;
-    padding: 2.75rem 1.5rem;
+    padding: 2.5rem 1rem;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: var(--radius);
@@ -1148,7 +1150,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 .metric-num {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+    font-size: clamp(1.2rem, 1.5vw, 1.6rem);
     white-space: nowrap;
     margin-bottom: 0.4rem;
     letter-spacing: -0.03em;
@@ -1341,6 +1343,244 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
     .lang-grid .featured-card { grid-column: 1 / -1; }
 }
 
+
+/* =========================================================
+   Venture Forge: ticker + Finance Lab
+   ========================================================= */
+#marketCanvas { opacity: 0.9; }
+
+.ticker .marquee-track { gap: 0; animation-duration: 55s; }
+.ticker-item {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.ticker-item .sep { margin: 0 2rem; font-size: 0.6rem; }
+
+.lab-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.lab-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 100px;
+    padding: 0.7rem 1.25rem;
+    cursor: pointer;
+    transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.lab-tab span { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
+.lab-tab:hover { color: var(--text-white); border-color: rgba(255, 255, 255, 0.16); }
+.lab-tab.active { color: #04130b; background: var(--accent); border-color: transparent; }
+.lab-tab.active span { color: rgba(4, 19, 11, 0.6); }
+
+.lab-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.lab-panel[hidden] { display: none !important; }
+.lab-panel.card:hover { transform: none; }
+
+.lab-copy > p { margin-bottom: 1.5rem; }
+
+.lab-field {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-gray);
+}
+
+.lab-field output {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-white);
+}
+
+.lab-field input[type=range] {
+    --fill: 50%;
+    grid-column: 1 / -1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--accent) 0 var(--fill), rgba(255, 255, 255, 0.08) var(--fill) 100%);
+    cursor: pointer;
+}
+
+.lab-field input[type=range]:focus { box-shadow: none; }
+.lab-field input[type=range]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.lab-field input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 4px rgba(61, 255, 154, 0.15);
+    transition: transform 0.2s;
+}
+.lab-field input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+.lab-field input[type=range]::-moz-range-thumb {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent);
+}
+
+.lab-seg {
+    display: flex;
+    gap: 0.35rem;
+    padding: 0.3rem;
+    margin-bottom: 1.4rem;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    background: rgba(7, 9, 10, 0.5);
+}
+
+.lab-seg button {
+    flex: 1;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    background: transparent;
+    border: none;
+    border-radius: 9px;
+    padding: 0.6rem 0.5rem;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+}
+
+.lab-seg button:hover { color: var(--text-white); }
+.lab-seg button.active { background: rgba(61, 255, 154, 0.12); color: var(--accent); }
+
+.lab-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.lab-stats div {
+    padding: 0.85rem 0.9rem;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: rgba(7, 9, 10, 0.5);
+    min-width: 0;
+}
+
+.lab-stats span {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.lab-stats strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text-white);
+    overflow-wrap: anywhere;
+}
+
+.lab-stats strong.big {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.lab-stats strong.up { color: var(--accent); }
+.lab-stats strong.down { color: #ff7a93; }
+
+.lab-chart {
+    padding: 1rem;
+    border-radius: 14px;
+    border: 1px solid var(--card-border);
+    background: rgba(7, 9, 10, 0.55);
+}
+
+.lab-chart svg { display: block; width: 100%; height: auto; aspect-ratio: 600 / 360; overflow: visible; }
+
+.lab-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    color: var(--text-gray);
+}
+
+.lab-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 14px; height: 3px;
+    border-radius: 2px;
+    margin-right: 0.45rem;
+    vertical-align: middle;
+}
+.lab-legend .lg-a::before { background: var(--accent); }
+.lab-legend .lg-b::before { background: var(--accent-3); }
+.lab-legend .lg-c::before { background: #ff7a93; }
+.lab-legend .lg-d::before { background: var(--accent-2); }
+
+.ch-grid { stroke: rgba(255, 255, 255, 0.06); stroke-width: 1; }
+.ch-zero { stroke: rgba(255, 255, 255, 0.3); stroke-width: 1; }
+.ch-label { fill: var(--text-muted); font-family: var(--font-mono); font-size: 11px; }
+.ch-line { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.ch-line.a, .ch-line.up { stroke: var(--accent); }
+.ch-line.b { stroke: var(--accent-3); }
+.ch-line.d { stroke: var(--accent-2); }
+.ch-line.down { stroke: #ff7a93; }
+.ch-area.a { fill: rgba(61, 255, 154, 0.12); }
+.ch-area.b { fill: rgba(179, 136, 255, 0.14); }
+.ch-mark { stroke: rgba(255, 255, 255, 0.25); stroke-dasharray: 4 4; }
+.ch-dot { fill: #fff; stroke: var(--accent); stroke-width: 3; }
+.ch-tag { fill: var(--text-white); font-family: var(--font-mono); font-size: 11px; }
+
+@media (max-width: 900px) {
+    .lab-panel { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+
+@media (max-width: 480px) {
+    .lab-stats { grid-template-columns: 1fr 1fr; }
+    .lab-stats div:last-child { grid-column: 1 / -1; }
+    .lab-tab { padding: 0.6rem 0.9rem; font-size: 0.82rem; }
+}
+
 /* =========================================================
    CTA band + footer
    ========================================================= */
@@ -1455,6 +1695,7 @@ footer p {
     .hero-dot { display: none; }
     .hero p a { display: block; }
     .stack-grid { grid-template-columns: 1fr; }
+    .section h2 { font-size: 7.6vw; }
     .stack-group { padding: 1.5rem; }
     .footer-links { gap: 1.1rem; }
 }
